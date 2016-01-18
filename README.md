@@ -29,18 +29,20 @@ In the settings given by `METEOR_SETTINGS`, if `public.environment` is dev, then
 
 Extract `build/wo.tar.gz` to `/home/wo` and then start WO following `/home/wo/bundle/README`. Note that the same settings of wo.conf should be used.
 
-    cp wo.tar.gz /home/wo
+Currently Meteor (1.2.1) works with Node v0.10.x. Make sure you have the right version of Node installed.
+
+    sudo cp build/wo.tar.gz /home/wo
     cd /home/wo
-    tar -zxf wo.tar.gz
-    (cd programs/server && npm install)
-    export MONGO_URL='mongodb://localhost/wo'
-    export PORT=4000
-    export MAIL_URL='smtp://localhost'
-    node main.js
+    sudo tar -zxf wo.tar.gz
+    cd bundle
+    (cd programs/server && sudo npm install)
+    sudo start wo
 
 ## Upgrade from Previous WO
 
 ### Export data from a previous WO
+
+The export script needs a version of Node that support ES6 (> 4.x.x). While waiting Meteor to support the latest Node, you need to switch between Node v0.10.x for Meteor and Node v4.x.x for this script. One solution is to use [Nvm](https://github.com/creationix/nvm).
 
 Edit `migrate/config.js` and set `from` to the MongoDB address. Then do
 

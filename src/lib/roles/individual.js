@@ -4,9 +4,9 @@ Options.set('defaultRoles', ['individual']);
  */
 let Atom = new Roles.Role('individual'),
     allows = {
-        entries: [function access(entry) {
+        entries: {access(entry) {
             return accessesDocument(this.userId, entry);
-        }],
+        }},
         datasets: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove'],
         apps: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove'],
         comments: ['index', 'update', 'showUpdate'],

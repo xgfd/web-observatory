@@ -4,9 +4,9 @@
 
 let Molecule = new Roles.Role('group'),
     grants = {
-        entries: [function access(entry) {
+        entries: {access(entry) {
             return accessesDocument(this.userId, entry);
-        }],
+        }},
         groups: ['index', 'update', 'showUpdate'],
         datasets: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove'],
         apps: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove']

@@ -81,17 +81,18 @@ setCollectionGrants = function (Role, colRules) {
 };
 
 function setRuleArray(Role, colName, fields) {
-    if (!Array.isArray(fields)) {
-        fields = [fields];
+    
+    for(let action in fields) {
+        if (fields.hasOwnProperty(action)) {
+            let field = fields[action];
+            
+            if (typeof field === 'string') {
+                Role.allow('collections.' + colName + '.' + field, true);
+            }
+
+            if (typeof field === 'function') {
+                Role.allow('collections.' + colName + '.' + action, field);
+            }
+        }
     }
-
-    fields.forEach(function (field) {
-        if (typeof field === 'string') {
-            Role.allow('collections.' + colName + '.' + field, true);
-        }
-
-        if (typeof field === 'function') {
-            Role.allow('collections.' + colName + '.' + field.name, field);
-        }
-    });
 };
