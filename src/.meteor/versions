@@ -54,8 +54,6 @@ ecmascript-runtime@0.2.6
 ejson@1.0.7
 email@1.0.8
 fastclick@1.0.7
-fortawesome:fontawesome@4.2.0_2
-froala:editor@1.2.8
 geojson-utils@1.0.4
 gildaspk:autoform-materialize@0.0.26
 github@1.1.4
@@ -117,7 +115,6 @@ orionjs:core@1.7.0
 orionjs:dictionary@1.7.0
 orionjs:file-attribute@1.7.0
 orionjs:filesystem@1.7.0
-orionjs:froala@1.7.0
 orionjs:image-attribute@1.7.0
 orionjs:lang-en@1.7.0
 orionjs:materialize@1.7.0

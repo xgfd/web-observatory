@@ -13,9 +13,11 @@ Thing = {
         label: 'Name'
     },
 
-    description: orion.attribute('froala', {
-        label: 'Description'
-    })
+    description: {
+        type: String,
+        label: 'Description',
+        autoform: {type: 'textarea'}
+    }
 };
 
 CreativeWork = {
@@ -53,10 +55,15 @@ CreativeWork = {
     publisher: orion.attribute('hasOne', {
         type: String,
         label: 'Publisher',
-        autoform: {
-            readonly: true,
+        autoValue() {
+            if (!this.isSet) {
+                return Meteor.userId();
+            }
         },
-        noneditable: true,
+        autoform: {
+            readonly: true
+        },
+        noneditable: true
     }, {
         collection: Meteor.users,
         // the key whose value you want to show for each Post document on the Update form
@@ -93,7 +100,7 @@ CreativeWork = {
             readonly: true,
             type: "pickadate"
         },
-        autoValue: function () {
+        autoValue () {
             if (this.isSet) {
                 return this.value;
             } else {

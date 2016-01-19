@@ -3,19 +3,19 @@
  */
 
 fileUpload = function (e, template) {
-    let target = $(e.target),
-        $fileUpload = target.closest('.fileUpload'),
+    let $file = $(e.target),
+        $root = $file.closest('div.card-content'),
+        $fileUpload = $file.closest('.fileUpload'),
         session = $fileUpload.attr('data-schema-key'),
-        $urlInput = target.closest('.row').prev().find('input[type=url]'),
+        $urlInput = $root.find('input[name*=\\.url]'),
         $urlLable = $urlInput.next(),
-    //to be more generic use
+    //to be more generic
         isDataset = template && template.data && template.data.category && template.data.category.singularName === 'dataset';
 
+    let $format, $formatUl, $fileOpt, $noneOpt;
+
     if (isDataset) {
-        let $formatInput = target.closest('.row').siblings().has('input.select-dropdown').find('input.select-dropdown'),
-            $formatUl = target.closest('.row').siblings().has('ul.dropdown-content').find('ul.dropdown-content'),
-            $formatFile = $formatUl.find('li:contains("File")'),
-            $formatNone = $formatUl.find('li:contains("(Select One)")');
+        $format = $root.find('select[name*=\\.fileFormat]');
     }
 
     Tracker.autorun(function () {
@@ -28,20 +28,70 @@ fileUpload = function (e, template) {
                 $urlLable.addClass('active');
 
                 if (isDataset) {
-                    //$formatInput.val('File');
-                    $formatFile.click();
-                    $formatInput.attr('readonly', '');
+                    $format.attr('disabled', '');
+                    $format.material_select();
+                    $formatUl = $root.find('ul.dropdown-content');
+                    $fileOpt = $formatUl.find('li:contains("File")');
+                    $fileOpt.click();
                 }
             } else {
                 $urlInput.val(null);
                 $urlInput.removeAttr('readonly');
 
                 if (isDataset) {
-                    //$formatInput.val('(Select One)');
-                    $formatNone.click();
-                    $formatInput.removeAttr('readonly');
+                    $format.removeAttr('disabled');
+                    $format.material_select();
+                    $formatUl = $root.find('ul.dropdown-content');
+                    $noneOpt = $formatUl.find('li:contains("(Select One)")');
+                    $noneOpt.click();
                 }
             }
         }
     );
-}
+};
+
+formatChange = function (e) {
+    let $select = $(e.target),
+        val = $select.val(),
+        $root = $select.closest('div.card-content'),
+        $url = $root.find('input[name*=\\.url]'),
+        $file = $root.find('.fileUpload'),
+        $fileSection = $file.closest('.row');
+
+    switch (val) {
+        case 'HTML':
+            $url.attr('placeholder', '["http://" | "https://"] host ["/" path] ["?" query]');
+            $fileSection.hide();
+            break;
+        case 'SPARQL':
+            $url.attr('placeholder', '["http://" | "https://"] host ["/" path]');
+            $fileSection.hide();
+            break;
+        case 'MySQL':
+            $url.attr('placeholder', '"mysql://" host "/" db');
+            $fileSection.hide();
+            break;
+        case 'MongoDB':
+            $url.attr('placeholder', '"mongodb://" host [":" port] "/" db');
+            $fileSection.hide();
+            break;
+        case 'AMQP':
+            $url.attr('placeholder', '("amqp://" | "amqps://") host [":" port] ["/" vhost] "?exchange=" exchange_name');
+            $fileSection.hide();
+            break;
+        case 'File':
+            $url.attr('placeholder', 'Leave this blank. A URL will be generated after you upload a file.');
+            $fileSection.show();
+            break;
+        default:
+            $url.attr('placeholder', 'Please select a format');
+            $fileSection.hide();
+    }
+};
+
+hideFileUpload = function () {
+    let $file = $('.fileUpload'),
+        $fileSection = $file.closest('.row');
+
+    $fileSection.hide();
+};

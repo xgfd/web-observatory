@@ -22,7 +22,7 @@ Comments.attachSchema(new SimpleSchema({
         autoform: {
             type: "hidden",
             readonly: true
-        },
+        }
     },
     category: {
         type: String,
@@ -34,12 +34,9 @@ Comments.attachSchema(new SimpleSchema({
             readonly: true
         }
     },
-    body: orion.attribute('froala', {
-        label: 'Body'
-    }),
+    body: {type: String, label: 'Body', autoform: {type: 'textarea'}},
     image: orion.attribute('image', {
         optional: true,
         label: 'Comment Image'
-    }),
+    })
 }));
-

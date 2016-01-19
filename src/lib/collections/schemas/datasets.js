@@ -19,12 +19,20 @@ let DistributionSchema = new SimpleSchema({
         }
     },
 
+    fileFormat: {
+        type: String,
+        label: 'Format',
+        allowedValues: ['MongoDB', 'MySQL', 'AMQP', 'SPARQL', 'HTML', 'File'],
+        autoform: {type: 'select'}
+        //TODO custom validate
+    },
+
     url: {
         type: String,
         label: 'Distribution URL',
         autoform: {
             type: 'url',
-            placeholder: "Provide the URL of this distribution or upload a file below"
+            placeholder: "Select a format"
         }
     },
 
@@ -32,29 +40,6 @@ let DistributionSchema = new SimpleSchema({
         label: 'Upload dataset as a file.',
         optional: true
     }),
-
-    //username: {
-    //    type: String,
-    //    optional: true
-    //},
-    //
-    //pass: {
-    //    type: String,
-    //    optional: true
-    //},
-
-    instruction: {
-        type: String,
-        optional: true,
-        label: 'Instruction to access this dataset'
-    },
-
-    fileFormat: {
-        type: String,
-        label: 'Format',
-        allowedValues: ['MongoDB', 'MySQL', 'AMQP', 'SPARQL', 'HTML', 'File']
-        //TODO custom validate
-    },
 
     profile: {
         type: Object,
@@ -75,6 +60,14 @@ let DistributionSchema = new SimpleSchema({
         optional: true,
         label: 'Dataset password'
     },
+
+    instruction: {
+        type: String,
+        optional: true,
+        label: 'Instruction to access this dataset',
+        autoform: {type: 'textarea'}
+    },
+
     //whether this distribution is online
     online: {
         type: Boolean,
@@ -85,9 +78,9 @@ let DistributionSchema = new SimpleSchema({
         optional: true,
         autoValue() {
             if (this.isInsert) {
-                return true;
+                return this.value || true;
             } else if (this.isUpsert) {
-                return {$setOnInsert: true};
+                return {$setOnInsert: this.value || true};
             } else if (!this.isSet) {
                 this.unset();
             } else {

@@ -29,7 +29,6 @@ service-configuration
 accounts-ui
 accounts-github
 ecmascript
-orionjs:froala
 matb33:collection-hooks
 vsivsi:orion-file-collection
 meteorhacks:npm

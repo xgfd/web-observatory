@@ -259,7 +259,9 @@ Router.route('/new/datasets/:entriesLimit?', {name: 'dataset.latest'});
 Router.route('/datasets/submit', {
     template: 'entrySubmit',
     name: 'dataset.submit',
-    data: {col: 'Datasets'}
+    data() {
+        return {category: Datasets, col: 'Datasets'};
+    }
 });
 
 Router.route('/datasets/:_id', {name: 'dataset.page'});
@@ -287,7 +289,9 @@ Router.route('/new/apps/:entriesLimit?', {name: 'app.latest'});
 Router.route('/apps/submit', {
     template: 'entrySubmit',
     name: 'app.submit',
-    data: {col: 'Apps'}
+    data() {
+        return {category: Apps, col: 'Apps'};
+    }
 });
 
 Router.route('/apps/:_id', {name: 'app.page'});
@@ -311,7 +315,9 @@ Router.route('/new/groups/:entriesLimit?', {name: 'group.latest'});
 Router.route('/groups/submit', {
     template: 'entrySubmit',
     name: 'group.submit',
-    data: {col: 'Groups'}
+    data() {
+        return {category: Groups, col: 'Groups'};
+    }
 });
 
 Router.route('/groups/:_id', {name: 'group.page'});
