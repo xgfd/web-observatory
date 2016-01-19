@@ -1,12 +1,11 @@
 /**
  * Created by xgfd on 13/01/2016.
  */
-"use strict";
 
-let path = '../import/private/';
+var path = '../import/private/';
 
-let sync = require('synchronize'),
-    {from} = require('./config'),
+var sync = require('synchronize'),
+    from = require('./config').from,
     MongoClient = require('mongodb').MongoClient,
     crypto = require('crypto'),
     enc_alg = 'aes256',
@@ -17,7 +16,7 @@ try {
 }
 catch (e) {
     if (e.errno === -17) {//folder exists
-        console.log(`Folder ${e.path} already exists`);
+        //console.log(`Folder ${e.path} already exists`);
     } else {
         throw e;
     }
@@ -31,13 +30,15 @@ MongoClient.connect(from, function (err, fromDb) {
     sync.fiber(function () {
         //migrate users
         console.log('exporting users ...');
-        let Clients = fromDb.collection('clients'),
+        var Clients = fromDb.collection('clients'),
             Users = fromDb.collection('users'),
             users = syncFind(Users, {});
 
-        users = users.map(user=>userTrans(user, Clients));
+        users = users.map(function (user) {
+            return userTrans(user, Clients)
+        });
 
-        fs.writeFile(path + 'users', JSON.stringify(users, null, 2), (err)=> {
+        fs.writeFile(path + 'users', JSON.stringify(users, null, 2), function (err) {
             if (err) {
                 throw err;
             }
@@ -46,23 +47,23 @@ MongoClient.connect(from, function (err, fromDb) {
         //migrate datasets
         console.log('exporting datasets ...');
 
-        let Entries = fromDb.collection('entries'),
+        var Entries = fromDb.collection('entries'),
             datasets = syncFind(Entries, {type: 'dataset'});
 
         datasets = datasets.map(datasetTrans);
 
-        fs.writeFile(path + 'datasets', JSON.stringify(datasets, null, 2), (err)=> {
+        fs.writeFile(path + 'datasets', JSON.stringify(datasets, null, 2), function (err) {
             if (err) {
                 throw err;
             }
         });
         //migrate apps
         console.log('exporting apps ...');
-        let apps = syncFind(Entries, {type: 'visualisation'});
+        var apps = syncFind(Entries, {type: 'visualisation'});
 
         apps = apps.map(appTrans);
 
-        fs.writeFile(path + 'apps', JSON.stringify(apps, null, 2), (err)=> {
+        fs.writeFile(path + 'apps', JSON.stringify(apps, null, 2), function (err) {
             if (err) {
                 throw err;
             }
@@ -73,7 +74,7 @@ MongoClient.connect(from, function (err, fromDb) {
 });
 
 function syncFind(col, query) {
-    let result = col.find(query);
+    var result = col.find(query);
 
     sync(result, 'toArray');
     return result.toArray();
@@ -82,7 +83,7 @@ function syncFind(col, query) {
 //migrate users helper
 function userTrans(user, Clients) {
 
-    let meteorUser = {username: null, profile: {}, email: null};
+    var meteorUser = {username: null, profile: {}, email: null};
 
     meteorUser.username = user.username || user.email;
     meteorUser.email = user.email;
@@ -93,12 +94,13 @@ function userTrans(user, Clients) {
     }
 
     if (user.clients) {
-        let clients = user.clients;
+        var clients = user.clients;
 
         clients = clients.map(function (clientId) {
-            let clients = syncFind(Clients, {_id: clientId}),
-                {clientSecret, name} = clients[0];
-            return {clientId, clientSecret, name};
+            var clients = syncFind(Clients, {_id: clientId}),
+                clientSecret = clients[0].clientSecret,
+                name = clients[0].name;
+            return {clientId: clientId, clientSecret: clientSecret, name: name};
         });
 
         meteorUser.profile.clients = clients;
@@ -108,7 +110,7 @@ function userTrans(user, Clients) {
 }
 
 function datasetTrans(dataset) {
-    let meteorDataset = {
+    var meteorDataset = {
         name: null,
         description: null,
         creator: null,
@@ -145,7 +147,8 @@ function datasetTrans(dataset) {
     meteorDataset.contentWhiteList = dataset.canAccess;
     meteorDataset.license = dataset.lice;
 
-    let dist = {url: null, fileFormat: null, online: null};
+    var dist = {_id: null, url: null, fileFormat: null, online: null};
+    dist._id = dataset._id;
     dist.url = dataset.url;
     dist.fileFormat = dataset.querytype;
     dist.online = dataset.alive;
@@ -154,7 +157,7 @@ function datasetTrans(dataset) {
     if (dataset.auth && dataset.auth.user) {
         dist.profile = {};
         dist.profile.username = dataset.auth.user;
-        let decipher = crypto.createDecipher(enc_alg, dataset.url);
+        var decipher = crypto.createDecipher(enc_alg, dataset.url);
         decipher.update(dataset.auth.encpwd, 'hex', 'utf8');
         try {
             dist.profile.pass = decipher.final('utf8');
@@ -173,7 +176,7 @@ function datasetTrans(dataset) {
 }
 
 function appTrans(app) {
-    let meteorApp = {
+    var meteorApp = {
         name: null,
         description: null,
         url: null,

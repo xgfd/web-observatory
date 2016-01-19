@@ -42,13 +42,11 @@ Currently Meteor (1.2.1) works with Node v0.10.x. Make sure you have the right v
 
 ### Export data from a previous WO
 
-The export script needs a version of Node that support ES6 (> 4.x.x). While waiting Meteor to support the latest Node, you need to switch between Node v0.10.x for Meteor and Node v4.x.x for this script. One solution is to use [Nvm](https://github.com/creationix/nvm).
-
-Edit `migrate/config.js` and set `from` to the MongoDB address. Then do
+Edit `migrate/config.js` and set `from` to the source MongoDB address. Then do
 
     cd migrate
     npm install
-    node --harmony_destructuring migrate.js
+    node migrate.js
 
 Exported data can be found at `app/private`.
 
