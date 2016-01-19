@@ -15,7 +15,7 @@ try {
     fs.mkdirSync(path);
 }
 catch (e) {
-    if (e.errno === -17) {//folder exists
+    if (e.errno === 47) {//folder exists
         //console.log(`Folder ${e.path} already exists`);
     } else {
         throw e;
