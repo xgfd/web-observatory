@@ -28,20 +28,29 @@ AutoForm.hooks({
     postSubmitForm: {
         before: {
             insert: function (doc) {
-                console.log(doc);
-                // Potentially alter the doc
+                if (doc && doc.distribution) {
+                    doc.distribution.forEach(dist=> {
+                        if (dist.file) {
+                            dist.fileFormat = 'File'
+                        }
+                    });
+                }
 
                 // Then return it or pass it to this.result()
-                //return doc; (synchronous)
+                return doc;// (synchronous)
                 //return false; (synchronous, cancel)
-                //this.result(doc); (asynchronous)
+                //this.result(doc); //(asynchronous)
                 //this.result(false); (asynchronous, cancel)
             }
         },
-        beginSubmit: function (doc) {
-            console.log(arguments);
-            console.log('update');
-            console.log(this.updateDoc);
+        after: {
+            insert: function (error, result) {
+                if (!error) {
+                    Router.go(this.collection.singularName + '.page', {_id: this.docId});
+                } else {
+                    console.log(error);
+                }
+            }
         }
     }
 });

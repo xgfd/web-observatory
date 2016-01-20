@@ -1,6 +1,13 @@
 /**
  * Created by xgfd on 02/01/2016.
  */
+//scroll to top
+Tracker.autorun(function () {
+    var current = Router.current();
+    Tracker.afterFlush(function () {
+        $(window).scrollTop(0);
+    });
+});
 
 fileUpload = function (e, template) {
     let $file = $(e.target),
@@ -28,7 +35,7 @@ fileUpload = function (e, template) {
                 $urlLable.addClass('active');
 
                 if (isDataset) {
-                    $format.attr('disabled', '');
+                    $format.attr('disabled', ''); //readonly doesn't work, use disabled and set fileFormat in before hook
                     $format.material_select();
                     $formatUl = $root.find('ul.dropdown-content');
                     $fileOpt = $formatUl.find('li:contains("File")');

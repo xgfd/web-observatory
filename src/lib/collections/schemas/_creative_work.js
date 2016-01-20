@@ -61,7 +61,8 @@ CreativeWork = {
             }
         },
         autoform: {
-            readonly: true
+            type: 'select',
+            //readonly: true
         },
         noneditable: true
     }, {
