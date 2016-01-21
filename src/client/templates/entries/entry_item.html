@@ -1,5 +1,18 @@
 <template name="entryItem">
-    <div class="grid-item">
+    <div class="grid-item" itemscope itemtype="{{itemtype}}">
+        <meta itemprop='http://schema.org/name' content={{name}}>
+        <meta itemprop='http://schema.org/url' content="{{absUrl}}">
+        <meta itemprop='http://schema.org/publisher' content="{{publisherObj.name}}">
+        <meta itemprop='http://schema.org/isBasedOnUrl' content="{{isBasedOnUrl}}">
+        <meta itemprop='http://schema.org/description' content="{{description}}">
+        <meta itemprop='http://schema.org/keywords' content="{{keywords}}">
+        <meta itemprop='http://schema.org/license' content="{{license}}">
+        <meta itemprop='http://schema.org/datePublished' content="{{datePublished}}">
+        <meta itemprop='http://schema.org/dateModified' content="{{dateModified}}">
+        <meta itemprop='http://schema.org/spatial' content="{{spatial}}">
+        <meta itemprop='http://schema.org/datasetTimeInterval'
+              content="{{datasetTimeInterval.startTime}} - {{datasetTimeInterval.endTime}}">
+        <meta itemprop='http://schema.org/commentCount' content="{{commentCount}}">
         <div class="card blue-grey accent-1 hoverable">
             <div class="card-content white-text">
                 <a class="card-title white-text truncate" title="{{name}}"
@@ -19,7 +32,7 @@
                         {{> distribution}}
                     {{/each}}
                 </div>
-                <!--<p> submitted by {{publisher.profile.name}} </p>-->
+                <!--<p> submitted by {{publisherObj.profile.name}} </p>-->
                 <p class="tooltipped" data-position="bottom"
                    data-tooltip="{{description}}">{{{blurb description 50}}}</p>
             </div>
@@ -48,7 +61,9 @@
     </div>
 </template>
 <template name="distribution">
-    <span class="chip {{offlineClass}} lighten-1 white-text">
-        {{this.fileFormat}}
+    <span itemprop="distribution" itemscope itemtype="http://schema.org/DataDownload"
+          class="chip {{offlineClass}} lighten-1 white-text">
+        <meta itemprop='http://schema.org/fileFormat' content="{{fileFormat}}">
+        {{fileFormat}}
     </span>
 </template>

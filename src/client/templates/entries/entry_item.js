@@ -1,4 +1,23 @@
+let schemaOrg = 'http://schema.org/';
+
 Template.entryItem.helpers({
+    //schema.org helpers
+    itemtype() {
+        let parentData = Template.parentData(1),
+            category = parentData.category;
+
+        switch (category) {
+            case Datasets:
+                return schemaOrg + 'Dataset';
+                break;
+            case Apps:
+                return schemaOrg + 'Apps';
+                break;
+            case Groups:
+                return schemaOrg + 'Groups';
+                break;
+        }
+    },
     blurb (text, limit) {
         let blurb = jQuery.truncate(text, {
             length: limit
@@ -20,14 +39,17 @@ Template.entryItem.helpers({
     ownEntry (entry = this) {
         return entry.publisher == Meteor.userId() || Roles.userHasRole(Meteor.userId(), "admin");
     },
-    publisher() {
+    publisherObj() {
         return Meteor.users.findOne(this.publisher);
     },
-    //domain () {
-    //    let a = document.createElement('a');
-    //    a.href = this.url;
-    //    return a.hostname;
-    //},
+    absUrl () {
+        let parentData = Template.parentData(1),
+            category = parentData.category;
+
+        let a = document.createElement('a');
+        a.href = `/${category.pluralName}/${this._id}`;
+        return a.host + a.pathname;
+    },
     upVotedClass() {
         let userId = Meteor.userId();
         if (userId && !_.include(this.downvoters, userId) && !_.include(this.upvoters, userId)) {
