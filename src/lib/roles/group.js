@@ -4,12 +4,15 @@
 
 let Molecule = new Roles.Role('group'),
     grants = {
-        entries: {access(entry) {
-            return accessesDocument(this.userId, entry);
-        }},
+        entries: {
+            access(entry) {
+                return accessesDocument(this.userId, entry);
+            }
+        },
         groups: ['index', 'update', 'showUpdate'],
         datasets: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove'],
-        apps: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove']
+        apps: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove'],
+        clients: ['index', 'insert', 'update', 'remove', 'showCreate', 'showUpdate', 'showRemove']
     };
 
 setCollectionGrants(Molecule, grants);
@@ -17,5 +20,6 @@ setCollectionGrants(Molecule, grants);
 Molecule.helper('collections.groups.indexFilter', ownsDocumentQuery);
 Molecule.helper('collections.datasets.indexFilter', ownsDocumentQuery);
 Molecule.helper('collections.apps.indexFilter', ownsDocumentQuery);
+Molecule.helper('collections.clients.indexFilter', ownsDocumentQuery);
 
 

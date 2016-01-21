@@ -54,10 +54,13 @@ CreativeWork = {
 
     publisher: orion.attribute('hasOne', {
         type: String,
-        label: 'Publisher',
+        label: 'publisher',
+        denyUpdate: true,
         autoValue() {
-            if (!this.isSet) {
+            if (this.isInsert || this.isUpsert) {
                 return Meteor.userId();
+            } else {
+                this.unset();
             }
         },
         autoform: {
@@ -67,7 +70,7 @@ CreativeWork = {
         noneditable: true
     }, {
         collection: Meteor.users,
-        // the key whose value you want to show for each Post document on the Update form
+        // the key whose value you want to show for each post document on the update form
         titleField: 'username',
         publicationName: 'publisher'
     }),
@@ -76,19 +79,16 @@ CreativeWork = {
     // and prevent updates thereafter.
     datePublished: {
         type: Date,
+        denyUpdate: true,
         autoform: {
             readonly: true,
             type: "pickadate"
         },
         autoValue: function () {
-            if (this.isSet) {
-                return this.value;
+            if (this.isInsert || this.isUpsert) {
+                return new Date();
             } else {
-                if (this.isInsert || this.isUpsert) {
-                    return new Date();
-                } else {
-                    this.unset(); // Prevent user from supplying their own value
-                }
+                this.unset(); // Prevent user from supplying their own value
             }
         }
     },
@@ -102,11 +102,7 @@ CreativeWork = {
             type: "pickadate"
         },
         autoValue () {
-            if (this.isSet) {
-                return this.value;
-            } else {
-                return new Date();
-            }
+            return new Date();
         },
         noneditable: true
     },

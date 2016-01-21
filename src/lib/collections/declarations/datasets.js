@@ -47,14 +47,14 @@ Datasets = new orion.collection('datasets', {
 // causes a Maximum call stack size exceeded error
 toEJSONSingularType(Datasets, Datasets.singularName);
 
-Datasets.allow({
-    update: function (userId, entry, fieldNames) {
-        return ownsDocument(userId, entry);// && _.difference(fieldNames, datasetWhitelist).length === 0;
-    },
-    remove: function (userId, entry) {
-        return ownsDocument(userId, entry);
-    },
-});
+//Datasets.allow({
+//    update: function (userId, entry, fieldNames) {
+//        return ownsDocument(userId, entry);// && _.difference(fieldNames, datasetWhitelist).length === 0;
+//    },
+//    remove: function (userId, entry) {
+//        return ownsDocument(userId, entry);
+//    },
+//});
 
 //Datasets.deny({
 //    update: function (userId, entry, fieldNames) {
@@ -68,16 +68,3 @@ Datasets.allow({
 //        return errors.name || errors.distribution;
 //    }
 //});
-
-validateDataset = function (dataset) {
-    let errors = {};
-
-    if (!dataset.name)
-        errors.name = "Please fill in a name";
-
-    if (!dataset.distribution)
-        errors.distribution = "Please fill in a distribution";
-
-    return errors;
-}
-

@@ -7,11 +7,13 @@ let DistributionSchema = new SimpleSchema({
 
     _id: {
         type: String,
+        denyUpdate: true,
         optional: true,
         autoValue(){
-            //console.log(this);
-            if (this.isInsert || !this.isSet) {
+            if (this.isInsert || this.isUpsert) {
                 return Random.id();
+            } else {
+                this.unset();
             }
         },
         autoform: {

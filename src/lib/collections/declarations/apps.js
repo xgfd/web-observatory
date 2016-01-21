@@ -45,11 +45,11 @@ Apps = new orion.collection('apps', {
 // causes a Maximum call stack size exceeded error
 toEJSONSingularType(Apps, Apps.singularName);
 
-Apps.allow({
-    update: function (userId, entry, fieldNames) {
-        return ownsDocument(userId, entry) && _.difference(fieldNames, appWhitelist).length === 0;
-    },
-    remove: function (userId, entry) {
-        return ownsDocument(userId, entry);
-    },
-});
+//Apps.allow({
+//    update: function (userId, entry, fieldNames) {
+//        return ownsDocument(userId, entry) && _.difference(fieldNames, appWhitelist).length === 0;
+//    },
+//    remove: function (userId, entry) {
+//        return ownsDocument(userId, entry);
+//    },
+//});

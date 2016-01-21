@@ -3,6 +3,7 @@
  */
 Apps = new Mongo.Collection('apps');
 Datasets = new Mongo.Collection('datasets');
+Clients = new Mongo.Collection('clients');
 
 function importData(path) {
     console.log('reading from ' + path);
@@ -14,16 +15,34 @@ function importData(path) {
 let _import = {apps: importApp, users: importUser, datasets: importDataset};
 
 function importUser(user) {
+    let userId;
     try {
-        Accounts.createUser(user);
+        userId = Accounts.createUser(user);
     }
     catch (e) {
         if (e.error === 403) {//username already exists
             console.log(`${user.username} already exists`)
+            userId = Accounts.findUserByEmail(user.email)._id;
         } else {
             console.log(e);
             throw e;
         }
+    }
+
+    if (user.profile && user.profile.clients) {
+        let clients = user.profile.clients;
+        clients.forEach(c=> {
+            let {clientId, clientSecret, name} = c;
+            Clients.upsert({_id: clientId}, {
+                $set: {
+                    _id: clientId,
+                    publisher: userId,
+                    clientSecret,
+                    name,
+                    datePublished: new Date()
+                }
+            });
+        });
     }
 }
 
