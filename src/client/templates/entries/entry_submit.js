@@ -13,10 +13,6 @@ Template.entrySubmit.helpers({
 
 Template.entrySubmit.onRendered(function () {
     hideFileUpload();
-    // AutoForm.hooks({
-    //   entrySubmitForm: hooksObject
-    // });
-
 });
 
 Template.entrySubmit.events({
@@ -36,7 +32,6 @@ AutoForm.hooks({
                     });
                 }
 
-                // Then return it or pass it to this.result()
                 return doc;// (synchronous)
                 //return false; (synchronous, cancel)
                 //this.result(doc); //(asynchronous)

@@ -26,3 +26,33 @@ orion.dictionary.addDefinition('termsAndConditions', 'submitPostPage', {
         optional: true
     }
 );
+
+let LicenseSchema = new SimpleSchema({
+    name: {
+        type: String,
+        label: 'License name'
+    },
+    url: {
+        type: String,
+        label: 'License URL',
+        autoform: {
+            type: 'url'
+        },
+        optional: true
+    },
+    text: {
+        type: String,
+        label: 'License text',
+        autoform: {
+            type: 'textarea'
+        },
+        optional: true
+    }
+});
+
+orion.dictionary.addDefinition('licenses', 'licenses', {
+        type: [LicenseSchema],
+        label: 'License'
+    }
+);
+
