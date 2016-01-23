@@ -54,37 +54,39 @@ Template.entryPage.rendered = function () {
     //transform license to link
     let $lice = $('select[name=license]'),
         eltId = $lice.attr('id'),
-        $wrapper = $lice.closest('.select-wrapper'),
+        $wrapper = $lice.closest('.row'),
         lice = $wrapper.find('.select-dropdown').val().toLowerCase();
 
+    let $row = $("<div class='col s12'></div>");
+    if (defaultLicenses.has(lice)) {
+        $row.append(`<a class="btn" href="http://choosealicense.com/licenses/${lice}" target="_blank">Show license</a>`);
+    }
 
-    $wrapper.after(function () {
-
-        if (lice === 'unspecified') {
-            return lice.toUpperCase();
-        }
-
-        if (defaultLicenses.has(lice)) {
-            return `<input readonly id=${eltId}><a href="http://choosealicense.com/licenses/${lice}" target="_blank">${lice.toUpperCase()}</a></input>`
-        }
-
-        let liceObj = Licenses.findOne({name: lice});
-        if (liceObj) {
-            if (liceObj.url) {
-                return `<input readonly id=${eltId}><a href="http://choosealicense.com/licenses/${lice}" target="_blank">${lice.toUpperCase()}</a></input>`
-            } else {
-                return `<p>${lice.toUpperCase()}</p>${liceObj.text}<p>`;
-            }
+    let liceObj = Licenses.findOne({name: lice});
+    if (liceObj) {
+        if (liceObj.url) {
+            $row.append(`<a class="btn" href="${liceObj.url}" target="_blank">Show license</a>`);
         } else {
-            return lice.toUpperCase();
+            $row.append(`<a class="btn modal-trigger" href="#liceModal">Show license</a>`);
+            $row.append(`<div id="liceModal" class="modal">
+                            <div class="modal-content">
+                              <p>${liceObj.text}</p>
+                            </div>
+                            <div class="modal-footer">
+                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                            </div>
+                          </div> `);
         }
-    });
-    $wrapper.remove();
+    } else {
+        //should not reach here
+    }
+
+    $wrapper.append($row);
+    $('.modal-trigger').leanModal();
 };
 
 Template.entryPage.events({
     'click a.modal-action.modal-close': function (e) {
-        console.log(e);
         Streamy.emit('amqp_end');
     }
 });

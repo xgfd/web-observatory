@@ -4,6 +4,7 @@
 Apps = new Mongo.Collection('apps');
 Datasets = new Mongo.Collection('datasets');
 Clients = new Mongo.Collection('clients');
+Roles = new Mongo.Collection('roles');
 
 function importData(path) {
     console.log('reading from ' + path);
@@ -18,6 +19,7 @@ function importUser(user) {
     let userId;
     try {
         userId = Accounts.createUser(user);
+        Roles.insert({userId, roles: ["individual"]});
     }
     catch (e) {
         if (e.error === 403) {//username already exists
@@ -55,7 +57,7 @@ function emailToId(email) {
 }
 
 function datasetTrans(dataset) {
-    dataset.license = dataset.license || 'Unspecified';
+    dataset.license = dataset.license || 'no-license';
     dataset.description = dataset.description;
     //publisher email->_id
     dataset.publisher = emailToId(dataset.publisher);
@@ -88,7 +90,7 @@ function importDataset(dataset) {
 }
 
 function appTrans(app) {
-    app.license = app.license || 'Unspecified';
+    app.license = app.license || 'no-license';
     app.description = app.description;
     //publisher email->_id
     app.publisher = emailToId(app.publisher);
@@ -105,8 +107,7 @@ function appTrans(app) {
         app.isBasedOnUrl = app.isBasedOnUrl.map(name=> {
             let ds = Datasets.findOne({name});
             if (!ds) {
-                console.error(app.name);
-                console.error(name);
+                console.error('App: ' + app.name + ', dataset ' + name + ' not found');
                 return null;
             } else {
                 return ds._id;

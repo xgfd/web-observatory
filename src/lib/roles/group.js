@@ -27,5 +27,6 @@ Molecule.helper('collections.licenses.indexFilter', ownsDocumentQuery);
 //forbidden fields
 Molecule.helper('collections.datasets.forbiddenFields', omitFields);
 Molecule.helper('collections.apps.forbiddenFields', omitFields);
-Molecule.helper('collections.clients.forbiddenFields', ['secret']);
+Molecule.helper('collections.licenses.forbiddenFields', ['publisher', 'datePublished']);
+Molecule.helper('collections.clients.forbiddenFields', ['clientSecret', 'publisher', 'datePublished']);
 //Molecule.helper('collections.comments.forbiddenFields', ['publisher', 'entryId', 'submitted']);

@@ -3,6 +3,7 @@ publish({
     datasets: Datasets,
     apps: Apps,
     groups: Groups,
+    licenses: Licenses,
     userNames: Meteor.users
 }, Meteor.publish, function (collection) {
     return function (options = {}, selector = {}) {

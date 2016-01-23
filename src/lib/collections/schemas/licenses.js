@@ -27,8 +27,9 @@ let LicenseSchema = new SimpleSchema({
             }
         },
         autoform: {
-            type: 'select'
-            //readonly: true
+            type: 'select',
+            readonly: true,
+            omit: true
         },
         noneditable: true
     }, {
@@ -50,6 +51,7 @@ let LicenseSchema = new SimpleSchema({
         denyUpdate: true,
         autoform: {
             readonly: true,
+            omit: true,
             type: "pickadate"
         },
         autoValue: function () {

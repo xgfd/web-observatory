@@ -128,8 +128,7 @@ CreativeWork = {
         label: 'License',
         autoform: {
             options() {
-                let
-                    addedLices = Licenses.find();
+                let addedLices = Licenses.find().fetch();
 
                 let options = [];
                 defaultLicenses.forEach(name=> {
@@ -139,7 +138,7 @@ CreativeWork = {
                 addedLices.forEach(lice=> {
                     if (lice.name) {
                         let name = lice.name;
-                        options.push({label: 'Custom license: ' + name.toUpperCase(), value: name});
+                        options.push({label: name.toUpperCase(), value: name});
                     }
                 });
 

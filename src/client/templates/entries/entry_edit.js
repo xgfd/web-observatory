@@ -1,7 +1,5 @@
 AutoForm.hooks({
     postEditForm: {
-        beginSubmit: function (doc) {
-        },
         after: {
             update: function (error, result) {
                 if (!error) {

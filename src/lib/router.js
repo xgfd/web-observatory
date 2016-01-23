@@ -7,6 +7,7 @@ Router.configure({
             Meteor.subscribe('notifications'),
             Meteor.subscribe('groups'),
             Meteor.subscribe('userNames'),
+            Meteor.subscribe('licenses')
         ]
     }
 });
@@ -150,7 +151,7 @@ LatestController = ListController.extend({
     },
     sort: {datePublished: -1, votes: -1, downvotes: 1, _id: -1},
     nextPath () {
-        return Router.routes[this.category.singularName + '.latest'].path({entriesLimit: this.entriesLimit() + this.increment})
+        return Router.routes[this.category.singularName + '.latest'].path({entriesLimit: this.entriesLimit() + this.increment});
     }
 });
 

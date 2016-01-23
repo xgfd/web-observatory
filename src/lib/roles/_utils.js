@@ -1,6 +1,8 @@
 //register actions
 Roles.registerAction("collections.entries.access", true);
 
+Roles.debug = true;
+
 // check that the userId specified owns the documents
 ownsDocument = function (userId, doc) {
     return doc && doc.publisher === userId || Roles.userHasRole(userId, "admin");

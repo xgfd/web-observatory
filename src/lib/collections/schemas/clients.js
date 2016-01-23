@@ -21,7 +21,8 @@ let ClientSchema = new SimpleSchema({
         },
         autoform: {
             type: 'select',
-            //readonly: true
+            omit: true,
+            readonly: true
         },
     }, {
         collection: Meteor.users,
@@ -41,6 +42,7 @@ let ClientSchema = new SimpleSchema({
             }
         },
         autoform: {
+            omit: true,
             readonly: true
         }
     },
@@ -50,6 +52,7 @@ let ClientSchema = new SimpleSchema({
         denyUpdate: true,
         autoform: {
             readonly: true,
+            omit: true,
             type: "pickadate"
         },
         autoValue: function () {
@@ -63,7 +66,8 @@ let ClientSchema = new SimpleSchema({
 
     callbackUrl: {
         type: String,
-        label: 'Callback URL'
+        label: 'Callback URL',
+        optional: true
     }
 });
 
