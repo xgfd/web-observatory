@@ -8,11 +8,15 @@ Template.entrySubmit.helpers({
     },
     errorClass: function (field) {
         return !!Session.get('entrySubmitErrors')[field] ? 'has-error' : '';
+    },
+    omitFields(){
+        return omitFields;
     }
 });
 
 Template.entrySubmit.onRendered(function () {
     hideFileUpload();
+    showChooseLicense();
 });
 
 Template.entrySubmit.events({

@@ -1,6 +1,6 @@
 <template name="entrySubmit">
 
-    {{> quickForm collection=col id="postSubmitForm" type="insert" omitFields="publisher, comments, commentsCount, datePublished, dateModified, upvoters, votes, online, distribution.$.online, distribution.$._id"}}
+    {{> quickForm collection=col id="postSubmitForm" type="insert" omitFields=omitFields}}
 
     {{#if dict 'submitPostPage.termsAndConditions'}}
         <div>TERMS AND CONDITIONS</div>

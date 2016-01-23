@@ -128,46 +128,21 @@ CreativeWork = {
         label: 'License',
         autoform: {
             options() {
-                let licenses = new Set([
-                        "unspecified",
-                        "afl-3.0",
-                        "agpl-3.0",
-                        "apache-2.0",
-                        "artistic-2.0",
-                        "bsd-2-clause",
-                        "bsd-3-clause-clear",
-                        "bsd-3-clause",
-                        "cc0-1.0",
-                        "epl-1.0",
-                        "gpl-2.0",
-                        "gpl-3.0",
-                        "isc",
-                        "lgpl-2.1",
-                        "lgpl-3.0",
-                        "mit",
-                        "mpl-2.0",
-                        "ms-pl",
-                        "ms-rl",
-                        "no-license",
-                        "ofl-1.1",
-                        "osl-3.0",
-                        "unlicense",
-                        "wtfpl"
-                    ]),
-                    addedLices = orion.dictionary.get('licenses.licenses', []);
+                let
+                    addedLices = Licenses.find();
 
-                console.log(addedLices);
+                let options = [];
+                defaultLicenses.forEach(name=> {
+                    options.push({label: name.toUpperCase(), value: name});
+                });
+
                 addedLices.forEach(lice=> {
                     if (lice.name) {
-                        licenses.add(lice.name);
+                        let name = lice.name;
+                        options.push({label: 'Custom license: ' + name.toUpperCase(), value: name});
                     }
                 });
 
-                console.log([...licenses]);
-                let options = ([...licenses]).map(name=> {
-                    return {label: name.toUpperCase(), value: name};
-                });
-                console.log(options);
                 return options;
             }
         }
@@ -269,11 +244,4 @@ Mis = {
 _.extend(CreativeWork, Thing);
 _.extend(CreativeWork, Mis);
 
-//TODO clean up use of whitelist/blacklist
-Whitelist = _.filter(_.keys(CreativeWork), function (property) {
-    return !CreativeWork[property].noneditable;
-});
-
-BlackList = _.filter(_.keys(CreativeWork), function (property) {
-    return CreativeWork[property].noneditable;
-});
+omitFields = "publisher, comments, commentsCount, datePublished, dateModified, upvoters, downvoters, votes, downvotes, online, distribution.$.online, distribution.$._id".split(/\s*,\s*/);

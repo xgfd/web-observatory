@@ -129,17 +129,17 @@ let Dataset = {
 
 //_.extend(Dataset, CreativeWork);
 //important, generate whitelist before constructing simpleschema
-datasetWhitelist = _.filter(_.keys(Dataset), function (property) {
-    return !Dataset[property].noneditable;
-});
-
-_.extend(datasetWhitelist, Whitelist);
-
-datasetBlackList = _.filter(_.keys(Dataset), function (property) {
-    return Dataset[property].noneditable;
-});
-
-_.extend(datasetBlackList, BlackList);
+//datasetWhitelist = _.filter(_.keys(Dataset), function (property) {
+//    return !Dataset[property].noneditable;
+//});
+//
+//_.extend(datasetWhitelist, Whitelist);
+//
+//datasetBlackList = _.filter(_.keys(Dataset), function (property) {
+//    return Dataset[property].noneditable;
+//});
+//
+//_.extend(datasetBlackList, BlackList);
 
 /* the following will cause errors;
  * new SimpleSchema(Dataset)) modifies Dataset and therefore modifies CreativeWork

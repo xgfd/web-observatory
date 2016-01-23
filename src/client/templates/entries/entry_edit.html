@@ -1,4 +1,4 @@
 <template name="entryEdit">
     <!--don't put distribution.$.online in omitFields, will unset its value. set type:hidden in the schema instead.-->
-    {{> quickForm collection=category id="postEditForm" type="update" doc=entry validation=true omitFields="publisher, comments, commentsCount, datePublished, dateModified, upvoters, votes, online"}}
+    {{> quickForm collection=category id="postEditForm" type="update" doc=entry validation=true omitFields=omitFields}}
 </template>

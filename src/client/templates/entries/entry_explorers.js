@@ -39,6 +39,28 @@ let request = new SimpleSchema({
 Template.requestFrom.helpers({
     requestSchema(){
         return request;
+    },
+    showLicense(){
+        let lice = this.entry.license.toLowerCase();
+
+        if (lice === 'unspecified') {
+            return lice.toUpperCase();
+        }
+
+        if (defaultLicenses.has(lice)) {
+            return `<a href="http://choosealicense.com/licenses/${lice}" target="_blank">${lice.toUpperCase()}</a>`
+        }
+
+        let liceObj = Licenses.findOne({name: lice});
+        if (liceObj) {
+            if (liceObj.url) {
+                return `<a href="${liceObj.url}" target="_blank">${lice.toUpperCase()}</a>`;
+            } else {
+                return `<p>${lice.toUpperCase()}</p>${liceObj.text}<p>`;
+            }
+        } else {
+            return lice.toUpperCase();
+        }
     }
 });
 

@@ -50,6 +50,36 @@ Template.entryPage.rendered = function () {
             return "<a href='" + url + "'>" + url + "</a>";
         }
     });
+
+    //transform license to link
+    let $lice = $('select[name=license]'),
+        eltId = $lice.attr('id'),
+        $wrapper = $lice.closest('.select-wrapper'),
+        lice = $wrapper.find('.select-dropdown').val().toLowerCase();
+
+
+    $wrapper.after(function () {
+
+        if (lice === 'unspecified') {
+            return lice.toUpperCase();
+        }
+
+        if (defaultLicenses.has(lice)) {
+            return `<input readonly id=${eltId}><a href="http://choosealicense.com/licenses/${lice}" target="_blank">${lice.toUpperCase()}</a></input>`
+        }
+
+        let liceObj = Licenses.findOne({name: lice});
+        if (liceObj) {
+            if (liceObj.url) {
+                return `<input readonly id=${eltId}><a href="http://choosealicense.com/licenses/${lice}" target="_blank">${lice.toUpperCase()}</a></input>`
+            } else {
+                return `<p>${lice.toUpperCase()}</p>${liceObj.text}<p>`;
+            }
+        } else {
+            return lice.toUpperCase();
+        }
+    });
+    $wrapper.remove();
 };
 
 Template.entryPage.events({

@@ -43,3 +43,7 @@ Clients = new orion.collection('clients', {
         ]
     }
 });
+
+// Meteor.call requires parameters to be of EJSON, passing a collection as it is
+// causes a Maximum call stack size exceeded error
+toEJSONSingularType(Clients, Clients.singularName);

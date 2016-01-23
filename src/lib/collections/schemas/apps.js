@@ -24,19 +24,19 @@ let App = {
     }
 };
 
-//_.extend(App, CreativeWork);
-
-//important, generate whitelist before constructing simpleschema
-appWhitelist = _.filter(_.keys(App), function (property) {
-    return !App[property].noneditable;
-});
-
-_.extend(appWhitelist, Whitelist);
-
-appBlacklist = _.filter(_.keys(App), function (property) {
-    return App[property].noneditable;
-});
-
-_.extend(appBlacklist, BlackList);
+////_.extend(App, CreativeWork);
+//
+////important, generate whitelist before constructing simpleschema
+//appWhitelist = _.filter(_.keys(App), function (property) {
+//    return !App[property].noneditable;
+//});
+//
+//_.extend(appWhitelist, Whitelist);
+//
+//appBlacklist = _.filter(_.keys(App), function (property) {
+//    return App[property].noneditable;
+//});
+//
+//_.extend(appBlacklist, BlackList);
 
 Apps.attachSchema(new SimpleSchema([Thing, App, CreativeWork]));

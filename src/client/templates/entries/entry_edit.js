@@ -14,6 +14,16 @@ AutoForm.hooks({
     }
 });
 
+Template.entryEdit.onRendered(function () {
+    showChooseLicense();
+});
+
 Template.entryEdit.events({
     'change .fileUpload input[type=file]': fileUpload
+});
+
+Template.entryEdit.helpers({
+    omitFields(){
+        return omitFields;
+    }
 });

@@ -102,3 +102,11 @@ hideFileUpload = function () {
 
     $fileSection.hide();
 };
+
+showChooseLicense = function () {
+    let $elt = $('select[name=license]'),
+        eltId = $elt.attr('id'),
+        $label = $(`label[for=${eltId}`);
+
+    $label.html($label.text() + `. Guide available at <a href="http://choosealicense.com/" target="_blank">Choose a license</a>`);
+};
