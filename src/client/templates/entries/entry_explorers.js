@@ -56,7 +56,7 @@ Template.requestFrom.helpers({
             if (liceObj.url) {
                 return `<a href="${liceObj.url}" target="_blank">${lice.toUpperCase()}</a>`;
             } else {
-                return `<p>${lice.toUpperCase()}</p>${liceObj.text}<p>`;
+                return `<p>${liceObj.text}<p>`;
             }
         } else {
             return lice.toUpperCase();
