@@ -10,10 +10,11 @@ function augsTrans(url, username, pass) {
             let distId = url,
                 dist = Datasets.findOne({'distribution._id': distId}, {fields: {distribution: {$elemMatch: {_id: distId}}}}).distribution[0];
 
-            //console.log(dist);
-
             if (dist) {
-                ({url, profile: {username, pass}} = dist);
+                url = dist.url;
+                if (dist.profile) {
+                    ({username, pass} = dist.profile);
+                }
             } else {
                 throw new Meteor.Error('not-found', `Distribution ${distId} not found`);
             }
@@ -25,7 +26,7 @@ function augsTrans(url, username, pass) {
 
 function connectorFactory(connect) {
     return function (url, username, pass) {
-        let originUrl = url;
+        let id = url;
 
         ({url, username, pass} = augsTrans.apply(null, arguments));
 
@@ -36,7 +37,7 @@ function connectorFactory(connect) {
         if (error) {
             throw new Meteor.Error(error.name, error.message);
         } else {
-            connPool[originUrl] = result;
+            connPool[id] = result;
             return true;
         }
     }
@@ -51,12 +52,19 @@ function queryerFactory(connector, queryExec) {
         let conn = connPool[distId];
 
         if (!conn) {
-            connector(distId);
+            try {
+                connector(distId);
+            }
+            catch (e) {
+                Datasets.update({distribution: {$elemMatch: {_id: distId}}}, {$set: {'distribtuion.$.online': false}});
+                throw e;
+            }
         }
 
         conn = connPool[distId];
 
         if (!conn) {
+            Datasets.update({distribution: {$elemMatch: {_id: distId}}}, {$set: {'distribtuion.$.online': false}});
             throw new Meteor.Error('not-found', `Distribution ${distId} not initialised`);
         }
 
@@ -65,8 +73,10 @@ function queryerFactory(connector, queryExec) {
         });
 
         if (error) {
+            Datasets.update({distribution: {$elemMatch: {_id: distId}}}, {$set: {'distribtuion.$.online': false}});
             throw new Meteor.Error(error.name, error.message);
         } else {
+            Datasets.update({distribution: {$elemMatch: {_id: distId}}}, {$set: {'distribtuion.$.online': true}});
             return result;
         }
     }
@@ -124,7 +134,7 @@ let amqpConnect = connectorFactory(function (url, username, pass, done) {
     }
 
     amqp.connect(url, function (error, conn) {
-        if (conn && !conn.exchanges) {
+        if (conn) {
             conn.exchanges = exchanges;
         }
         done(error, conn);

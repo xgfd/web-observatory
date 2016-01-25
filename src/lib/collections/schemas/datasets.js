@@ -79,14 +79,10 @@ let DistributionSchema = new SimpleSchema({
         },
         optional: true,
         autoValue() {
-            if (this.isInsert) {
+            if (this.isInsert || this.isUpsert) {
                 return this.value || true;
-            } else if (this.isUpsert) {
-                return {$setOnInsert: this.value || true};
             } else if (!this.isSet) {
                 this.unset();
-            } else {
-                return undefined;
             }
         }
     }

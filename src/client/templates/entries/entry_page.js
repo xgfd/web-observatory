@@ -33,15 +33,7 @@ Template.entryPage.helpers({
     }
 });
 
-Template.entryPage.rendered = function () {
-    $('ul.tabs').tabs();
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal({
-        complete: function () {
-            Session.set('queryResult', null);
-        }
-    });
-
+function urlToLink() {
     //transform type=url to link
     $('[type=url]').after(function () {
         let url = this.value;
@@ -50,7 +42,9 @@ Template.entryPage.rendered = function () {
             return "<a href='" + url + "'>" + url + "</a>";
         }
     });
+}
 
+function liceToLink() {
     //transform license to link
     let $lice = $('select[name=license]'),
         eltId = $lice.attr('id'),
@@ -67,7 +61,7 @@ Template.entryPage.rendered = function () {
         if (liceObj.url) {
             $row.append(`<a class="btn" href="${liceObj.url}" target="_blank">Show license</a>`);
         } else {
-            $row.append(`<a class="btn modal-trigger" href="#liceModal">Show license</a>`);
+            $row.append(`<a id="liceModalTrigger" class="btn modal-trigger" href="#liceModal">Show license</a>`);
             $row.append(`<div id="liceModal" class="modal">
                             <div class="modal-content">
                               <p>${liceObj.text}</p>
@@ -82,7 +76,27 @@ Template.entryPage.rendered = function () {
     }
 
     $wrapper.append($row);
+}
+
+function entriToLink() {
+
+}
+
+Template.entryPage.rendered = function () {
+    $('ul.tabs').tabs();
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+
+    urlToLink();
+
+    liceToLink();
+
     $('.modal-trigger').leanModal();
+
+    $('#amqpModalTrigger').leanModal({
+        complete: function () {
+            Session.set('queryResult', null);
+        }
+    });
 };
 
 Template.entryPage.events({

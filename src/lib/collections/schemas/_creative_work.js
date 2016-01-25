@@ -243,4 +243,4 @@ Mis = {
 _.extend(CreativeWork, Thing);
 _.extend(CreativeWork, Mis);
 
-omitFields = "publisher, comments, commentsCount, datePublished, dateModified, upvoters, downvoters, votes, downvotes, online, distribution.$.online, distribution.$._id".split(/\s*,\s*/);
+omitFields = "publisher, comments, commentsCount, datePublished, dateModified, upvoters, downvoters, votes, downvotes, online, distribution.$._id".split(/\s*,\s*/);
