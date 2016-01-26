@@ -30,7 +30,7 @@ orion.dictionary.addDefinition('termsAndConditions', 'submitPostPage', {
 //ldap
 let ldapSchema = new SimpleSchema({
     domain: {type: String},
-    serverDN: {type: String, label: 'Server DN'},
+    serverDn: {type: String, label: 'Server DN'},
     serverUrl: {type: String, label: 'Server Url'},
     whiteListedFields: {type: String, label: 'Included fields'}
 });

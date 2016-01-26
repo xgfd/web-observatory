@@ -5,11 +5,13 @@ function ldapOrUserPass(error, state) {
 
         let username = document.getElementById("at-field-username_and_email").value;
         pass = document.getElementById("at-field-password").value;
-        try{
-            Meteor.loginWithLdap(username, pass);
-        } catch (e) {
-           console.log(e);
-        }
+
+        Meteor.loginWithLdap(username, pass, function (err) {
+            if (err) {
+                let errSpan = $('.at-form .at-error span');
+                errSpan.html(`<i class="mdi-alert-warning"></i> ${err.reason}`);
+            }
+        });
     }
 }
 // Options
