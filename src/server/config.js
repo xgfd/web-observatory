@@ -63,4 +63,34 @@ Meteor.startup(function () {
             {upsert: true}
         );
     }
+
+    // Overwrite this function to produce settings based on the incoming request
+    LDAP.generateSettings = function (request) {
+        let username = request.username,
+            domain = username.split('@')[1];
+
+        let ldaps = orion.dictionary.get('ldap.ldap'),
+            ldapConfig;
+
+        if (ldaps) {
+            ldapConfig = ldaps.filter(v=>v.domain === domain)[0];
+            ldapConfig.whiteListedFields = ldapConfig.whiteListedFields.split(/,\s*/);
+            ldapConfig.autopublishFields = ldapConfig.autopublishFields ? ldapConfig.autopublishFields.split(/,\s*/) : ldapConfig.whiteListedFields;
+            delete ldapConfig.domain;
+        }
+        console.log(ldapConfig);
+
+        return ldapConfig;
+    };
+
+    Accounts.onCreateUser(function (options, user) {
+        let profile = options.profile;
+        if (profile) {
+            if (profile.displayName) {
+                profile.name = profile.displayName;
+            }
+        }
+        user.profile = profile;
+        return user;
+    });
 });
