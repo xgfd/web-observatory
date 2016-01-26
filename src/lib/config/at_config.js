@@ -1,3 +1,17 @@
+function ldapOrUserPass(error, state) {
+    if (error && state === 'signIn' //user/pass login failed
+        && orion.dictionary.get('ldap.ldap')
+        && orion.dictionary.get('ldap.ldap').length !== 0) {
+
+        let username = document.getElementById("at-field-username_and_email").value;
+        pass = document.getElementById("at-field-password").value;
+        try{
+            Meteor.loginWithLdap(username, pass);
+        } catch (e) {
+           console.log(e);
+        }
+    }
+}
 // Options
 AccountsTemplates.configure({
     // defaultLayout: 'emptyLayout',
@@ -16,7 +30,7 @@ AccountsTemplates.configure({
     //showAddRemoveServices: false,
     showPlaceholders: true,
     lowercaseUsername: true,
-
+    onSubmitHook: ldapOrUserPass,
     continuousValidation: true,
     negativeValidation: true,
     positiveValidation: true,

@@ -26,3 +26,13 @@ orion.dictionary.addDefinition('termsAndConditions', 'submitPostPage', {
         optional: true
     }
 );
+
+//ldap
+let ldapSchema = new SimpleSchema({
+    domain: {type: String},
+    serverDN: {type: String, label: 'Server DN'},
+    serverUrl: {type: String, label: 'Server Url'},
+    whiteListedFields: {type: String, label: 'Included fields'}
+});
+
+orion.dictionary.addDefinition('ldap', 'ldap', {type: [ldapSchema]});

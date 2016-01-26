@@ -39,3 +39,4 @@ simple:reactive-method
 http
 yuukan:streamy
 email
+babrahams:accounts-ldap
