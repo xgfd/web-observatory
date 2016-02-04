@@ -19,8 +19,6 @@ orionjs:filesystem
 orionjs:s3
 orionjs:file-attribute
 standard-minifiers
-materialize:materialize
-orionjs:materialize
 useraccounts:materialize
 useraccounts:iron-routing
 accounts-password
@@ -40,3 +38,7 @@ http
 yuukan:streamy
 email
 babrahams:accounts-ldap
+fortawesome:fontawesome
+twbs:bootstrap
+orionjs:bootstrap
+jquery

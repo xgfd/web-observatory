@@ -1,20 +1,94 @@
 <template name="home">
-    <div class="row">
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <ul class="tabs">
-                <li class="tab col s6"><a href="#datasets">Datasets</a></li>
-                <li class="tab col s6"><a href="#apps">Apps</a></li>
-            </ul>
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <p class="intro-text">Discover Datasets, Apps and Projects</p>
+                        <div class="input-search">
+                            <span class="icon-search"><i class="fa fa-search"></i></span>
+                            <a href="#search" data-toggle="modal" data-target="#search-overlay"><span class="search-field"></span></a>
+                        </div>
+                        <a href="#top" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="datasets" class="col s12">
-            {{> entryList dataset}}
-            <a href="{{pathFor dataset.routes.latest}}">More</a>
+    </header>
+
+    <!-- Top Section -->
+    <section id="top" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Top Rated</h2>
+                <p>Top Rated Apps, Datasets and Projects.</p>
+            </div>
         </div>
-        <div id="apps" class="col s12">
-            {{> entryList app}}
-            <a href="{{pathFor app.routes.latest}}">More</a>
+    </section>
+
+    <!-- Recent Section -->
+    <section id="recent" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Recent</h2>
+                    <p>Most Recent Apps and Datasets.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; WO team</p>
+        </div>
+    </footer>
+
+    <div class="search-modal modal" id="search-overlay" tabindex="-1" role="dialog" aria-labelledby="Search">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-content">
+                            <div class="align-box"></div>
+                            <div class="search-header">Search Observatory</div>
+                            <div class="input-symbol">
+                                <span class="icon-search"><i class="fa fa-search"></i></span>
+                                <input id="search-field" class="search-box-expand" type="text" name="search" style="width: 30px;" autofocus>
+                            </div>
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal -->
+    <!--<div class="row">-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="col s12">-->
+            <!--<ul class="tabs">-->
+                <!--<li class="tab col s6"><a href="#datasets">Datasets</a></li>-->
+                <!--<li class="tab col s6"><a href="#apps">Apps</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div id="datasets" class="col s12">-->
+            <!--{{> entryList dataset}}-->
+            <!--<a href="{{pathFor dataset.routes.latest}}">More</a>-->
+        <!--</div>-->
+        <!--<div id="apps" class="col s12">-->
+            <!--{{> entryList app}}-->
+            <!--<a href="{{pathFor app.routes.latest}}">More</a>-->
+        <!--</div>-->
+    <!--</div>-->
 </template>

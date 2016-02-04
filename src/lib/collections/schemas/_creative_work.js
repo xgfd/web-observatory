@@ -58,7 +58,7 @@ CreativeWork = {
         denyUpdate: true,
         autoValue() {
             if (this.isInsert || this.isUpsert) {
-                return Meteor.userId();
+                return this.userId;
             } else {
                 this.unset();
             }

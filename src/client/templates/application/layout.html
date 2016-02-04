@@ -1,13 +1,60 @@
 <template name="layout">
     <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <meta itemprop='name' content='Web Observatory'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
     </head>
-    <div id="content">
-        {{> nav}}
-        {{> errors}}
-        <div class="container" id="main">
-            {{> yield}}
+    <!--<head>-->
+        <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+        <!--<meta itemprop='name' content='Web Observatory'>-->
+    <!--</head>-->
+    <!--<div id="content">-->
+        <!--{{> nav}}-->
+        <!--{{> errors}}-->
+        <!--<div class="container" id="main">-->
+        <!--</div>-->
+    <!--</div>-->
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <span class="light">Web</span> Observatory
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-main-collapse">
+                    <ul class="nav navbar-nav navbar-left navbar-menu">
+                        <li><a href="#"><i class="fa fa-bars"></i></a></li>
+                        <li><a href="#search" data-toggle="modal" data-target="#search-overlay"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#top">Top</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#recent">Recent</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
+        <!-- /.container -->
+    </nav>
+
+    {{> yield}}
+
+    </body>
 </template>
