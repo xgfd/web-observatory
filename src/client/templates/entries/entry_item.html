@@ -19,9 +19,9 @@
                    href="{{pathFor ../routes.page}}">{{name}}</a>
                 <div class="red-text text-accent-2">
                     {{#if canAccess this}}
-                        <span class="teal-text text-accent-2"><i class="material-icons" title="Access allowed">check</i></span>
+                        <span class="teal-text text-accent-2"><i class="fa fa-check"></i></span>
                     {{else}}
-                        <span><i class="material-icons" title="Access denied">block</i></span>
+                        <span><i class="fa fa-ban"></i></span>
                     {{/if}}
                     {{#if offline}}
                         <span><i class="material-icons" title="Distribution offline">error</i></span>
@@ -33,27 +33,27 @@
                     {{/each}}
                 </div>
                 <!--<p> submitted by {{publisherObj.profile.name}} </p>-->
-                <p class="tooltipped" data-position="bottom"
-                   data-tooltip="{{description}}">{{{blurb description 50}}}</p>
+                <p class="small tooltipped" data-position="bottom"
+                   data-tooltip="{{description}}">{{{blurb description 80}}}</p>
             </div>
             <div class="card-action">
-                <a href="#" class="{{upVotedClass}}" title="Up votes">
-                    <i class="material-icons">thumb_up</i>{{votes}}
+                <a href="#" class="{{upVotedClass}} btn btn-default btn-xs" title="Up votes">
+                    <i class="fa fa-thumbs-up"></i> {{votes}}
                 </a>
-                <a href="#" class="{{downVotedClass}}" title="Down votes">
-                    <i class="material-icons">thumb_down</i>{{downvotes}}
+                <a href="#" class="{{downVotedClass}} btn btn-default btn-xs" title="Down votes">
+                    <i class="fa fa-thumbs-down"></i> {{downvotes}}
                 </a>
-                <a href="{{pathFor ../routes.page hash='comments'}}" title="Comments">
-                    <i class="material-icons">comment</i>{{commentsCount}}
+                <a href="{{pathFor ../routes.page hash='comments'}}" class="btn btn-default btn-xs" title="Comments">
+                    <i class="fa fa-comment"></i> {{commentsCount}}
                 </a>
                 {{#if ownEntry}}
-                    <a href="{{pathFor ../routes.edit}}" title="Edit">
-                        <i class="material-icons">settings</i>
+                    <a href="{{pathFor ../routes.edit}}" class="btn btn-default btn-xs" title="Edit">
+                        <i class="fa fa-cog"></i>
                     </a>
                 {{/if}}
                 {{#if showInNewTab}}
-                    <a href="{{showInNewTab}}" title="Show in new tab" target="_blank">
-                        <i class="material-icons">open_in_new</i>
+                    <a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-default btn-xs" target="_blank">
+                        <i class="fa fa-external-link"></i>
                     </a>
                 {{/if}}
             </div>

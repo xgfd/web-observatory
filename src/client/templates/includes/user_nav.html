@@ -1,0 +1,14 @@
+<template name="user_nav">
+    {{#if currentUser}}
+        <li>
+            <a href="/admin">{{currentUser.profile.name}}</a>
+        </li>
+        <!--<li>-->
+            <!--{{> notifications}}-->
+        <!--</li>-->
+    {{else}}
+        <li>
+            <a href="/admin">Login</a>
+        </li>
+    {{/if}}
+</template>

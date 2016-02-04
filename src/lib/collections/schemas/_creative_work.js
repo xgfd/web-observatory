@@ -58,7 +58,7 @@ CreativeWork = {
         denyUpdate: true,
         autoValue() {
             if (this.isInsert || this.isUpsert) {
-                return this.userId;
+                return this.userId || this.value;
             } else {
                 this.unset();
             }
@@ -133,14 +133,14 @@ CreativeWork = {
                 let options = [];
                 defaultLicenses.forEach(name=> {
                     options.push({label: name.toUpperCase(), value: name});
-                });
+            });
 
                 addedLices.forEach(lice=> {
                     if (lice.name) {
-                        let name = lice.name;
-                        options.push({label: name.toUpperCase(), value: name});
-                    }
-                });
+                    let name = lice.name;
+                    options.push({label: name.toUpperCase(), value: name});
+                }
+            });
 
                 return options;
             }

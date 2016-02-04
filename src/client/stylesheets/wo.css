@@ -18,7 +18,7 @@ h6 {
   margin: 0 0 35px;
   text-transform: uppercase;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: 1px; }
 
 p {
@@ -39,6 +39,9 @@ a {
   a:hover, a:focus {
     text-decoration: none;
     color: #1d9b6c; }
+
+.well {
+  background-color: #1d9b6c; }
 
 .light {
   font-weight: 300; }
@@ -269,7 +272,13 @@ a {
     -moz-transform: scale(1);
     transform: scale(1); } }
 .content-section {
-  padding-top: 100px; }
+  padding-top: 120px; }
+
+.grid-item {
+  /*float: left;*/
+  width: 250px;
+  /*height: 300px;*/
+  display: inline-block; }
 
 .download-section {
   width: 100%;
@@ -288,7 +297,7 @@ a {
 
 @media (min-width: 767px) {
   .content-section {
-    padding-top: 250px; }
+    padding-top: 120px; }
 
   .download-section {
     padding: 100px 0; }

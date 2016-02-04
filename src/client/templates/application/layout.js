@@ -14,3 +14,8 @@
 //  }
 //});
 
+Meteor.startup(function() {
+    $('body').attr('id',"page-top");
+    $('body').attr('data-spy',"scroll");
+    $('body').attr('data-target',".navbar-fixed-top");
+});

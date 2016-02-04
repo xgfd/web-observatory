@@ -14,7 +14,7 @@ let ClientSchema = new SimpleSchema({
         denyUpdate: true,
         autoValue() {
             if (this.isInsert || this.isUpsert) {
-                return Meteor.userId();
+                return this.userId || this.value;
             } else {
                 this.unset();
             }
