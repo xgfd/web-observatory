@@ -16,9 +16,10 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <!--<nav class="navbar navbar-custom navbar-fixed-top {{#unless this._isHome}}force-nav-collapse{{/unless}}" role="navigation">-->
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="/#page-top">
                     <span class="light">Web</span> Observatory
                 </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -36,12 +37,14 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
+                        {{#if this._isHome}}
                         <li>
                             <a class="page-scroll" href="#top">Top</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#recent">Recent</a>
                         </li>
+                        {{/if}}
                         {{> user_nav}}
                     </ul>
                 </div>

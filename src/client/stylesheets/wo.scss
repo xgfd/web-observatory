@@ -142,6 +142,52 @@ a {
     }
 }
 
+.force-nav-collapse {
+    padding: 0;
+    background: black;
+    border-bottom: 1px solid rgba(white, 0.3);
+}
+
+.page {
+    padding: 20px 0;
+    .tab-pane {
+        padding: 20px 0;
+    }
+}
+
+.page-intro {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    background: url(tele2.jpg) no-repeat bottom center scroll;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    .intro-body {
+        display: table-cell;
+        vertical-align: middle;
+        .grid-item {
+            width:100%;
+            .card-title {
+                font-size: 3em;
+                font-weight: 300;
+            }
+            .white-text {
+                color: #fff;
+            }
+            p {
+                font-size: 1.5em;
+            }
+        }
+
+    }
+}
+
 .intro {
     display: table;
     width: 100%;
@@ -275,6 +321,7 @@ a {
             }
         }
     }
+
 
     .close-modal:hover {
         opacity: 0.5;
@@ -473,13 +520,4 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: rgba(white, 0.2);
-}
-
-.nav-pills {
-    li {
-        a:hover {
-            background-color: $gray-darker;
-            color: $link-color;
-        }
-    }
 }

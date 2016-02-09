@@ -270,7 +270,8 @@ HomeController = ListController.extend({
 
                     }
                 }
-            }
+            },
+            _isHome:true
         };
     }
 });

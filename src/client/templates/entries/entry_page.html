@@ -1,64 +1,80 @@
 <template name="entryPage">
-    {{>entryItem entry}}
-    <div class="row">
-        <div class="col s12">
-            <ul class="tabs">
-                <li class="tab col s3"><a href="#metadata">Metadata</a></li>
-                <li class="tab col s3"><a href="#comments">Comments</a></li>
+    <header class="page-intro">
+        <div class="intro-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        {{>entryItem entry}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="row page">
+        <div class="col-md-8 col-md-offset-2">
+            <ul class="nav nav-pills">
+                <li class="tab col s3 active"><a href="#metadata" data-toggle="pill">Metadata</a></li>
+                <li class="tab col s3"><a href="#comments" data-toggle="pill">Comments</a></li>
                 {{#if canAccess entry}}
                     {{#each entry.distribution}}
-                        <li class="tab col s3"><a href="{{appendHash _id}}">{{fileFormat}}</a></li>
+                        <li class="tab col s3"><a href="{{appendHash _id}}" data-toggle="pill">{{fileFormat}}</a></li>
                     {{/each}}
                 {{/if}}
 
                 {{#if showRequestForm}}
-                    <li class="tab col s3"><a href="#request_access">{{requestFormTitle}}</a></li>
+                    <li class="tab col s3"><a href="#request_access" data-toggle="pill">{{requestFormTitle}}</a></li>
                 {{/if}}
             </ul>
         </div>
 
-        <div id="metadata" class="col s12">
-            {{> quickForm collection=category id="metadataForm" type="readonly" doc=entry omitFields="comments, commentsCount, upvoters, downvoters, votes, downvotes, distribution.$.url, distribution.$.file, distribution.$.profile"}}
-        </div>
+        <div class="tab-content col-md-8 col-md-offset-2">
+            <div id="metadata" class="tab-pane col s12 active">
+                {{> quickForm collection=category id="metadataForm" type="readonly" doc=entry omitFields="comments, commentsCount, upvoters, downvoters, votes, downvotes, distribution.$.url, distribution.$.file, distribution.$.profile"}}
+            </div>
 
-        <div id="comments" class="col s12">
-            <ul id="comments" class="comments">
-                {{#each comments}}
-                    {{> commentItem}}
+
+
+            <div id="comments" class="tab-pane col s12">
+                <ul id="comments" class="comments">
+                    {{#each comments}}
+                        {{> commentItem}}
+                    {{/each}}
+                </ul>
+
+                {{#if currentUser}}
+                    {{> commentSubmit}}
+                {{else}}
+                    <p>Please log in to leave a comment.</p>
+                {{/if}}
+            </div>
+
+            {{#if canAccess entry}}
+                <!--show query interface-->
+                {{#each entry.distribution}}
+                    <div class="tab-pane" id="{{_id}}">
+                        {{>Template.dynamic template=fileFormat data=distData}}
+                    </div>
                 {{/each}}
-            </ul>
-
-            {{#if currentUser}}
-                {{> commentSubmit}}
-            {{else}}
-                <p>Please log in to leave a comment.</p>
+                <!-- Modal Structure -->
+                <div id="queryResult" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                        <h4>Query Results</h4>
+                        {{#if queryResult}}
+                            <pre>{{{queryResult}}}</pre>
+                        {{else}}
+                            {{> loading}}
+                        {{/if}}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Dismiss</a>
+                    </div>
+                </div>
             {{/if}}
         </div>
 
-        {{#if canAccess entry}}
-            <!--show query interface-->
-            {{#each entry.distribution}}
-                {{>Template.dynamic template=fileFormat data=distData}}
-            {{/each}}
-            <!-- Modal Structure -->
-            <div id="queryResult" class="modal modal-fixed-footer">
-                <div class="modal-content">
-                    <h4>Query Results</h4>
-                    {{#if queryResult}}
-                        <pre>{{{queryResult}}}</pre>
-                    {{else}}
-                        {{> loading}}
-                    {{/if}}
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Dismiss</a>
-                </div>
-            </div>
-        {{/if}}
-
         {{#if showRequestForm}}
             <!--show request access form if logged in-->
-            <div id="request_access" class="col s12">
+            <div id="request_access" class="tab-pane col s12">
                 {{#if currentUser}}
                     {{>requestFrom}}
                 {{else}}
