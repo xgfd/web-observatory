@@ -104,7 +104,7 @@ let Dataset = {
         type: Date,
         label: "Start",
         autoform: {
-            type: "pickadate" // set to pickadate to work with materilize, check out https://github.com/djhi/meteor-autoform-materialize/
+            type: "bootstrap-datepicker" // set to bootstrap-datepicker to work with materilize, check out https://github.com/djhi/meteor-autoform-materialize/
         }
     },
 
@@ -112,7 +112,7 @@ let Dataset = {
         type: Date,
         label: "End",
         autoform: {
-            type: "pickadate"
+            type: "bootstrap-datepicker"
         }
     },
 

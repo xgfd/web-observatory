@@ -236,23 +236,45 @@ HomeController = ListController.extend({
         let textFilter = searchName(Session.get('search'));
         return textFilter;
     },
-    datasets () {
-        return Datasets.find({}, this.findOptions());
+    //recent () {
+    //    let ds = Datasets.find({}, {sort: {datePublished: -1}, limit: 8}).fetch();
+    //    let ap = Apps.find({}, {sort: {datePublished: -1}, limit: 8}).fetch();
+    //    let cb =ds.concat(ap);
+    //    return _.first(_.sortBy(cb, function(cb) {return cb.datePublished;}).reverse(),8);
+    //},
+    datasets (options) {
+        if(!options)
+            options = this.findOptions();
+        return Datasets.find({}, options);
     },
-    apps () {
-        return Apps.find({}, this.findOptions());
+    apps (options) {
+        if(!options)
+            options = this.findOptions();
+        return Apps.find({}, options);
     },
     nextPath () {
-        console.log("runnext");
+        //console.log("runnext");
         return Router.routes['datasets.latest'].path({entriesLimit: this.entriesLimit() + this.increment});
     },
     data () {
         let self = this;
         return {
+            recentDataset: {
+                category: Datasets,
+                routes: self.routes('dataset'),
+                entries: self.datasets({sort: {datePublished: -1}, limit: 8}),
+                ready: self.ready.bind(self),
+            },
+            recentApp: {
+                category: Apps,
+                routes: self.routes('app'),
+                entries: self.apps({sort: {datePublished: -1}, limit: 8}),
+                ready: self.ready.bind(self),
+            },
             dataset: {
                 category: Datasets,
                 routes: self.routes('dataset'),
-                entries: self.datasets(),
+                entries: self.datasets({sort: {votes: -1},  limit: 8}),
                 ready: self.ready.bind(self),
                 nextPath () {
                     if (Datasets.find().count() === self.entriesLimit()) {
@@ -263,7 +285,7 @@ HomeController = ListController.extend({
             app: {
                 category: Apps,
                 routes: self.routes('app'),
-                entries: self.apps(),
+                entries: self.apps({sort: {votes: -1},  limit: 8}),
                 ready: self.ready.bind(self),
                 nextPath () {
                     if (Apps.find().count() === self.entriesLimit()) {

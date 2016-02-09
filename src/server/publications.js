@@ -82,3 +82,10 @@ Meteor.publish('notifications', function () {
 Meteor.publish('images', function () {
     return Images.find();
 });
+
+//Meteor.publish("datasetsAndApps", function () {
+//    return [
+//        Datasets.find(),
+//        Apps.find()
+//    ];
+//});

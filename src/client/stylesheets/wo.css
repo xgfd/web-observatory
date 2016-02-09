@@ -144,6 +144,9 @@ a {
       .page-intro .intro-body .grid-item p {
         font-size: 1.5em; }
 
+.grid-item {
+  padding: 10px; }
+
 .intro {
   display: table;
   width: 100%;
@@ -397,5 +400,22 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
+
+.nav-pills-custom {
+  padding-bottom: 20px; }
+  .nav-pills-custom li a {
+    background-color: #000 !important;
+    text-transform: uppercase;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #42DCA3 !important; }
+    .nav-pills-custom li a:hover {
+      color: #1d9b6c !important; }
+  .nav-pills-custom li.active {
+    background-color: #000;
+    border-bottom: 1px solid #42DCA3; }
+
+.pills-table {
+  display: table;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=wo.css.map */

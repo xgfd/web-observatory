@@ -19,7 +19,7 @@
     <!--<nav class="navbar navbar-custom navbar-fixed-top {{#unless this._isHome}}force-nav-collapse{{/unless}}" role="navigation">-->
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand page-scroll" href="/#page-top">
+                <a class="navbar-brand page-scroll" href="{{#if this._isHome}}#page-top{{else}}/{{/if}}">
                     <span class="light">Web</span> Observatory
                 </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">

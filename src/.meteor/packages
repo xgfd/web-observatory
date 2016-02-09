@@ -39,8 +39,10 @@ yuukan:streamy
 email
 babrahams:accounts-ldap
 fortawesome:fontawesome
-twbs:bootstrap
 orionjs:bootstrap
 jquery
 tmeasday:publish-counts
 meteorhacks:picker
+aldeed:autoform-bs-datepicker
+rajit:bootstrap3-datepicker
+twbs:bootstrap

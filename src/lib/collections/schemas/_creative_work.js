@@ -82,7 +82,7 @@ CreativeWork = {
         denyUpdate: true,
         autoform: {
             readonly: true,
-            type: "pickadate"
+            type: "bootstrap-datepicker"
         },
         autoValue: function () {
             if (this.isInsert || this.isUpsert) {
@@ -99,7 +99,7 @@ CreativeWork = {
         type: Date,
         autoform: {
             readonly: true,
-            type: "pickadate"
+            type: "bootstrap-datepicker"
         },
         autoValue () {
             return new Date();

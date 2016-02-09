@@ -36,7 +36,7 @@ fileUpload = function (e, template) {
 
                 if (isDataset) {
                     $format.attr('disabled', ''); //readonly doesn't work, use disabled and set fileFormat in before hook
-                    $format.material_select();
+                    //$format.material_select();
                     $formatUl = $root.find('ul.dropdown-content');
                     $fileOpt = $formatUl.find('li:contains("File")');
                     $fileOpt.click();
@@ -47,7 +47,7 @@ fileUpload = function (e, template) {
 
                 if (isDataset) {
                     $format.removeAttr('disabled');
-                    $format.material_select();
+                    //$format.material_select();
                     $formatUl = $root.find('ul.dropdown-content');
                     $noneOpt = $formatUl.find('li:contains("(Select One)")');
                     $noneOpt.click();

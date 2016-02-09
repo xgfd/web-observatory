@@ -24,9 +24,22 @@
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
                 <h2>Top Rated</h2>
-                <div id="datasets">
-                    {{> entryList dataset}}
-                    <a href="{{pathFor dataset.routes.latest}}">More</a>
+                <div class="pills-table">
+                    <ul class="nav nav-pills nav-pills-custom">
+                        <li class="active"><a href="#topApps" data-toggle="pill">Apps</a></li>
+                        <li><a href="#topDatasets" data-toggle="pill">Datasets</a></li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div id="topApps" class="tab-pane active">
+                        {{> entryList app}}
+                        <a href="{{pathFor app.routes.latest}}">More</a>
+                    </div>
+                    <div class="tab-pane" id="topDatasets">
+                        {{> entryList dataset}}
+                        <a href="{{pathFor dataset.routes.latest}}">More</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,12 +47,28 @@
 
     <!-- Recent Section -->
     <section id="recent" class="content-section text-center">
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1">
-                <h2>Recent</h2>
-                <div id="apps" class="col s12">
-                    {{> entryList app}}
-                    <a href="{{pathFor app.routes.latest}}">More</a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Recent</h2>
+                    <div class="pills-table">
+                        <ul class="nav nav-pills nav-pills-custom">
+                            <li class="active"><a href="#recentApps" data-toggle="pill">Apps</a></li>
+                            <li><a href="#recentDatasets" data-toggle="pill">Datasets</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="recentApps" class="tab-pane active">
+                            {{> entryList recentApp}}
+                            <a href="{{pathFor app.routes.latest}}">More</a>
+                        </div>
+                        <div class="tab-pane" id="recentDatasets">
+                            {{> entryList recentDataset}}
+                            <a href="{{pathFor dataset.routes.latest}}">More</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

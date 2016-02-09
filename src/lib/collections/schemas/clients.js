@@ -53,7 +53,7 @@ let ClientSchema = new SimpleSchema({
         autoform: {
             readonly: true,
             omit: true,
-            type: "pickadate"
+            type: "bootstrap-datepicker"
         },
         autoValue: function () {
             if (this.isInsert || this.isUpsert) {

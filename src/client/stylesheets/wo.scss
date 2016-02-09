@@ -188,6 +188,10 @@ a {
     }
 }
 
+.grid-item {
+    padding: 10px;
+}
+
 .intro {
     display: table;
     width: 100%;
@@ -520,4 +524,30 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: rgba(white, 0.2);
+}
+
+.nav-pills-custom {
+    padding-bottom: 20px;
+    li {
+        a {
+            background-color: #000 !important;
+            text-transform: uppercase;
+            font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+            color: $primary !important;
+            &:hover {
+                color: #1d9b6c !important;
+            }
+        }
+        &.active {
+            background-color: #000;
+            border-bottom: 1px solid $primary;
+        }
+    }
+
+
+}
+
+.pills-table {
+    display: table;
+    margin: 0 auto;
 }

@@ -67,7 +67,7 @@ let Group = {
         denyUpdate: true,
         autoform: {
             readonly: true,
-            type: "pickadate"
+            type: "bootstrap-datepicker"
         },
         autoValue: function () {
             if (this.isInsert) {
