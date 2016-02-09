@@ -29,6 +29,7 @@ ListController = RouteController.extend({
         let query = {}, _query = this.params.query;
 
         _.keys(_query).forEach(function (key) {
+            console.log(key);
             switch (key) {
                 case 'online':
                 case 'aclMeta':
@@ -127,6 +128,22 @@ function search(searchText) {
     return selector;
 }
 
+function searchName(searchText) {
+    let selector;
+    if (searchText) {
+        let regExp = buildRegExp(searchText);
+        selector = {
+            $or: [
+                {name: regExp}
+            ]
+        };
+    } else {
+        selector = {};
+    }
+
+    return selector;
+}
+
 //any position
 function buildRegExp(searchText) {
     let parts = searchText.trim().split(/[ \-\:]+/);
@@ -210,16 +227,24 @@ GroupPageController = PageController.extend({
 
 HomeController = ListController.extend({
     template: 'home',
-    increment: 4,
+    increment: 8,
     sort: {votes: -1, downvotes: 1, datePublished: -1, _id: -1},
     subscriptions () {
-        return [Meteor.subscribe('datasets', this.findOptions()), Meteor.subscribe('apps', this.findOptions())];
+        return [Meteor.subscribe('datasets', this.findOptions(), this.findSearchSelector()), Meteor.subscribe('apps', this.findOptions(), this.findSearchSelector())];
+    },
+    findSearchSelector() {
+        let textFilter = searchName(Session.get('search'));
+        return textFilter;
     },
     datasets () {
         return Datasets.find({}, this.findOptions());
     },
     apps () {
         return Apps.find({}, this.findOptions());
+    },
+    nextPath () {
+        console.log("runnext");
+        return Router.routes['datasets.latest'].path({entriesLimit: this.entriesLimit() + this.increment});
     },
     data () {
         let self = this;
@@ -228,14 +253,24 @@ HomeController = ListController.extend({
                 category: Datasets,
                 routes: self.routes('dataset'),
                 entries: self.datasets(),
-                ready: self.ready.bind(self)
+                ready: self.ready.bind(self),
+                nextPath () {
+                    if (Datasets.find().count() === self.entriesLimit()) {
+                        
+                    }
+                }
             },
             app: {
                 category: Apps,
                 routes: self.routes('app'),
                 entries: self.apps(),
-                ready: self.ready.bind(self)
-            },
+                ready: self.ready.bind(self),
+                nextPath () {
+                    if (Apps.find().count() === self.entriesLimit()) {
+
+                    }
+                }
+            }
         };
     }
 });

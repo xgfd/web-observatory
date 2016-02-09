@@ -17,24 +17,24 @@
             <div class="card-content white-text">
                 <a class="card-title white-text truncate" title="{{name}}"
                    href="{{pathFor ../routes.page}}">{{name}}</a>
-                <div class="red-text text-accent-2">
-                    {{#if canAccess this}}
-                        <span class="teal-text text-accent-2"><i class="fa fa-check"></i></span>
-                    {{else}}
-                        <span><i class="fa fa-ban"></i></span>
-                    {{/if}}
-                    {{#if offline}}
-                        <span><i class="material-icons" title="Distribution offline">error</i></span>
-                    {{/if}}
-                </div>
-                <div>
-                    {{#each this.distribution}}
-                        {{> distribution}}
-                    {{/each}}
-                </div>
+
                 <!--<p> submitted by {{publisherObj.profile.name}} </p>-->
                 <p class="small tooltipped" data-position="bottom"
-                   data-tooltip="{{description}}">{{{blurb description 80}}}</p>
+                   data-tooltip="{{description}}">{{#if canAccess this}}
+                    <span class="teal-text text-accent-2"><i class="fa fa-check"></i></span>
+                {{else}}
+                    <span><i class="fa fa-ban"></i></span>
+                {{/if}}
+                    {{#if offline}}
+                        <span><i class="material-icons" title="Distribution offline">error</i></span>
+                    {{/if}}  {{{blurb description 80}}}
+                <div>
+                    {{#each this.distribution}}
+                        <span class="badge">{{> distribution}}</span>
+                    {{/each}}
+                </div>
+                </p>
+
             </div>
             <div class="card-action">
                 <a href="#" class="{{upVotedClass}} btn btn-default btn-xs" title="Up votes">

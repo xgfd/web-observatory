@@ -42,3 +42,5 @@ fortawesome:fontawesome
 twbs:bootstrap
 orionjs:bootstrap
 jquery
+tmeasday:publish-counts
+meteorhacks:picker

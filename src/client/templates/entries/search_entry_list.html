@@ -1,0 +1,18 @@
+<template name="searchEntryList">
+    <div class="row">
+        <!--<div class="list-group">-->
+        <ul class="nav nav-pills nav-stacked">
+            {{#each entries}}
+                {{> searchEntryItem}}
+                <!--{{> entryItem}}-->
+            {{/each}}
+        </ul>
+        {{#if nextPath}}
+            <a class="load-more" href="{{nextPath}}">...</a>
+        {{else}}
+            {{#unless ready}}
+                {{> loading}}
+            {{/unless}}
+        {{/if}}
+    </div>
+</template>

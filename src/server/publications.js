@@ -45,6 +45,8 @@ publish({
                 break;
         }
 
+        //Counts.publish(this, collection.singularName, collection.find());
+
         return collection.find(selector, options);
     };
 });

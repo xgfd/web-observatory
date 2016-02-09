@@ -188,6 +188,7 @@ a {
       border: 0 solid;
       box-shadow: none; }
 .search-modal .close-modal {
+  z-index: 9;
   opacity: 1;
   position: absolute;
   top: 25px;
@@ -360,5 +361,9 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
+
+.nav-pills li a:hover {
+  background-color: #222222;
+  color: #42DCA3; }
 
 /*# sourceMappingURL=wo.css.map */

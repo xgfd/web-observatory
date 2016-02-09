@@ -1,0 +1,8 @@
+<template name="searchEntryItem">
+    <li>
+        <a title="{{name}}"
+                                                href="{{pathFor ../routes.page}}">{{name}} {{#each this.distribution}}<span class="badge">{{> distribution}}</span> {{/each}}</a>
+        <!--<p class="list-group-item-text small tooltipped" data-position="bottom"-->
+           <!--data-tooltip="{{description}}">{{{blurb description 80}}}</p>-->
+    </li>
+</template>

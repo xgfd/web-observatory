@@ -1,3 +1,55 @@
-// Variables
-
 $primary: #42DCA3;
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              #303030 !default;   // #333
+$gray:                   #464545 !default;
+$gray-light:             #999 !default;   // #999
+$gray-lighter:           #EBEBEB !default; // #eee
+
+$brand-primary:         #375a7f !default;
+$brand-success:         #00bc8c !default;
+$brand-info:            #3498DB !default;
+$brand-warning:         #F39C12 !default;
+$brand-danger:          #E74C3C !default;
+
+$text-color:            #fff !default;
+$link-color:            #42DCA3 !default;
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+$padding-base-vertical:     10px !default;
+$padding-base-horizontal:   15px !default;
+
+$padding-large-vertical:    18px !default;
+$padding-large-horizontal:  27px !default;
+
+$padding-small-vertical:    6px !default;
+$padding-small-horizontal:  9px !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     5px !default;
+
+$line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1.5 !default;
+
+$border-radius-base:        4px !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       3px !default;
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color:    #fff !default;
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:       $brand-primary !default;
+
+//** Width of the `border` for generating carets that indicator dropdowns.
+$caret-width-base:          4px !default;
+//** Carets increase slightly in size for larger components.
+$caret-width-large:         5px !default;
