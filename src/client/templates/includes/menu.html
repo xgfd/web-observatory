@@ -1,0 +1,31 @@
+<template name="menu">
+    <div class="menu-wrap">
+        <div class="dividewhite4"></div>
+        <nav class="menu">
+            <ul class="icon-list">
+                <li>
+                    <div class="m-usermenu">
+                        <div>
+                            <div class="article-author-name">
+                                {{#if currentUser}}
+                                    <h4 class="font-accident-one-bold"><a href="/admin"><i class="fa fa-user"></i> {{currentUser.profile.name}}</a></h4>
+                                {{else}}
+                                    <h4 class="font-accident-one-bold"><a href="/admin"><i class="fa fa-user-secret"></i> Annonymous</a></h4>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dividewhite2"></div>
+                </li>
+                <li class="menu-item"><a href="{{pathFor 'home'}}"><i class="fa fa-fw fa-star-o"></i><span>Home</span></a></li>
+                <li class="menu-item"><a href="{{pathFor 'dataset.latest'}}"><i class="fa fa-fw fa-table"></i><span>Datasets</span></a></li>
+                <li class="menu-item"><a href="{{pathFor 'app.latest'}}"><i class="fa fa-fw fa-bar-chart"></i><span>Apps</span></a></li>
+                <li class="menu-item"><a href="{{pathFor 'group.latest'}}"><i class="fa fa-fw fa-users"></i><span>Projects</span></a></li>
+                <li class="menu-item"><a href="{{pathFor 'home'}}"><i class="fa fa-fw fa-clone"></i><span>Tutorials</span></a></li>
+            </ul>
+        </nav>
+        <div class="close-button nav-icon2" id="close-button">
+            <div></div>
+        </div>
+    </div>
+</template>

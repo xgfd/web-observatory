@@ -1,1 +1,26 @@
 $primary: #42DCA3;
+
+/* Blue-grey */
+$bg-light: #eaeaea;
+$bg-medium: #808080;
+$bg-dark: #202020;
+$bg-darker: #181818;
+$bg-darkest: #131313;
+//$bg-darkest: rgba(0,0,0,1);
+$bg-accent: #E84855;
+$fontcolor-regular: #333;
+$fontcolor-medium: #999;
+$fontcolor-invert: #fff;
+$fontcolor-medium-light: #eaeaea;
+$hovercolor: #42DCA3;
+$accentcolor: #007EA7;
+
+
+// Color Classes
+.fontcolor-regular, .fontcolor-regular a {color: $fontcolor-regular;}
+.fontcolor-invert, .fontcolor-invert a {color: $fontcolor-invert;}
+.fontcolor-medium-light, .fontcolor-medium-light a {color: $fontcolor-medium-light; opacity: .5;}
+.hovercolor, .hovercolor a {color: $hovercolor !important;}
+
+.accent-color, .accent-color a {color: $accentcolor !important;}
+.accent-color a:hover {color: $hovercolor !important;}
