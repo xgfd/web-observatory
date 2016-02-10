@@ -1,5 +1,8 @@
 <head>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' property='stylesheet' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' property='stylesheet' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' property='stylesheet' rel='stylesheet' type='text/css'>
     <title>Web Observatory</title>
 </head>
 
@@ -18,8 +21,8 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <!--<nav class="navbar navbar-custom navbar-fixed-top {{#unless this._isHome}}force-nav-collapse{{/unless}}" role="navigation">-->
+    <!--<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">-->
+    <nav class="navbar navbar-custom navbar-fixed-top {{#unless _isTemplated}}force-nav-collapse{{/unless}}" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand page-scroll" href="{{#if this._isHome}}#page-top{{else}}/{{/if}}">
@@ -59,7 +62,18 @@
     </nav>
 
     <div class="content-wrap">
-        {{> yield}}
+        {{#if _isTemplated}}
+            {{> yield}}
+        {{else}}
+            <section class="container-fluid content-section text-center">
+                <div class="row">
+                    <div class="dividewhite5"></div>
+                    <div class="col-lg-12">
+                        {{> yield}}
+                    </div>
+                </div>
+            </section>
+        {{/if}}
     </div>
 
     <!-- Off-canvas menu -->

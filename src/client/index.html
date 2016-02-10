@@ -34,11 +34,11 @@
                 <div class="tab-content">
                     <div id="topApps" class="tab-pane active">
                         {{> entryList app}}
-                        <a href="{{pathFor app.routes.latest}}">More</a>
+                        <a href="{{pathFor app.routes.latest}}" class="btn btn-lgr-str">More</a>
                     </div>
                     <div class="tab-pane" id="topDatasets">
                         {{> entryList dataset}}
-                        <a href="{{pathFor dataset.routes.latest}}">More</a>
+                        <a href="{{pathFor dataset.routes.latest}}" class="btn btn-lgr-str">More</a>
                     </div>
                 </div>
             </div>
@@ -61,11 +61,11 @@
                     <div class="tab-content">
                         <div id="recentApps" class="tab-pane active">
                             {{> entryList recentApp}}
-                            <a href="{{pathFor app.routes.latest}}">More</a>
+                            <a href="{{pathFor app.routes.latest}}" class="btn btn-lgr-str">More</a>
                         </div>
                         <div class="tab-pane" id="recentDatasets">
                             {{> entryList recentDataset}}
-                            <a href="{{pathFor dataset.routes.latest}}">More</a>
+                            <a href="{{pathFor dataset.routes.latest}}" class="btn btn-lgr-str">More</a>
                         </div>
                     </div>
 

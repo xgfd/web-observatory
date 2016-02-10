@@ -185,7 +185,8 @@ a {
                 color: #fff;
             }
             p {
-                font-size: 1.5em;
+                color: $fontcolor-medium-light;
+                font-size: 1.2em;
             }
         }
 
@@ -846,3 +847,342 @@ body {
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+
+/*------------------------------------------------------------------
+[5. Buttons]
+*/
+
+/* Button Sizes */
+.btn-lg {font-size: 15px;}
+.btn-default {font-size: 13px;}
+.btn-sm {font-size: 12px;}
+.btn-xs {font-size: 11px; padding: 3px 9px;}
+
+/* Button Types */
+.btn-darker,
+.btn-blk,
+.btn-gr,
+.btn-lgr,
+.btn-lgr-str,
+.btn-grey-str,
+.btn-light,
+.btn-wh,
+.btn-wh-str,
+.btn-rd,
+.btn-rd-str {
+    border-radius: 24px;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    -ms-transition: all 0.35s ease-in-out;
+}
+.btn-darker {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    border: 1px solid $bg-darker;
+    background: $bg-darker;
+    color: $fontcolor-invert !important;;
+    &:hover {
+        border: 1px solid $hovercolor; background: $hovercolor; color: $fontcolor-invert !important;;
+    }
+}
+.btn-blk {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    border: 1px solid #353535;
+    background: #353535;
+    color: $fontcolor-invert !important;;
+    &:hover {
+        border: 1px solid $hovercolor; background: $hovercolor; color: $fontcolor-invert !important;;
+    }
+    &:focus {
+        border: 1px solid $hovercolor; background: $hovercolor; color: $fontcolor-invert !important;;
+    }
+}
+.btn-gr {
+    font-family: $font-accident-one-normal;
+    //font-style: oblique;
+    border: 1px solid #505050;
+    color: $fontcolor-invert !important;;
+    background: #505050;
+    &:hover {
+        border: 1px solid $hovercolor; background: $hovercolor; color: $fontcolor-invert !important;;
+    }
+}
+.btn-lgr {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    border: 1px solid #999999;
+    background: #999999;
+    color: $fontcolor-invert !important;;
+    &:hover {
+        border: 1px solid $hovercolor; background: $hovercolor; color: $fontcolor-invert !important;;
+    }
+}
+.btn-lgr-str {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    background:  none;
+    margin-right: 12px;
+    border: 2px solid $fontcolor-medium;
+    color: $fontcolor-medium !important;;
+    &:hover {
+        background: none; border: 2px solid $hovercolor; color: $hovercolor !important;
+    }
+}
+.btn-grey-str {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    background:  none !important;
+    margin-right: 12px;
+    border: 2px solid $fontcolor-regular;
+    color: $fontcolor-regular !important;;
+    &:hover {
+        background: none; border: 2px solid $hovercolor; color: $hovercolor !important;;
+    }
+}
+.btn-light {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    background:  $bg-light;
+    margin-right: 12px;
+    border: 1px solid $bg-light;
+    color: $bg-darker !important;
+    &:hover {
+        background: $hovercolor; border: 1px solid $hovercolor; color: $fontcolor-invert !important;;
+    }
+}
+.btn-wh-str {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    background:  none;
+    margin-right: 12px;
+    border: 2px solid $fontcolor-medium-light;
+    color: $fontcolor-medium-light !important;;
+    &:hover {
+        background: none; border: 2px solid $hovercolor; color: $hovercolor !important;
+    }
+}
+.btn-wh {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    background:  $bg-skin;
+    margin-right: 12px;
+    border: 2px solid $bg-skin;
+    color: $fontcolor-regular !important;;
+    &:hover {
+        background: $hovercolor; border: 2px solid $hovercolor; color: $fontcolor-invert !important;
+    }
+}
+.btn-rd {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    border: 1px solid $hovercolor;
+    color: $fontcolor-invert !important;;
+    background: $hovercolor;
+    &:hover {
+        border: 1px solid #ec1717; background: #ec1717; color: $fontcolor-invert !important;;
+    }
+}
+.btn-rd-str {
+    font-family: $font-accident-one-normal;
+    font-style: oblique;
+    background:  none;
+    margin-right: 12px;
+    border: 2px solid $hovercolor;
+    color: $hovercolor !important;;
+    &:hover {
+        background: none; border: 2px solid $fontcolor-invert; color: $fontcolor-invert !important;
+    }
+}
+
+/*------------------------------------------------------------------
+[2. Blocks]
+*/
+
+@mixin block-margins {  padding: 130px 0 130px 0;  }
+@mixin block-ins-margins {  padding: 100px 0 100px 0;  }
+@mixin infoblock-margins {  margin: 0 0 24px 0;  }
+@mixin block-null-margins {  margin: 0; padding: 0;  }
+
+.e-block {  @include block-margins;  }
+.e-block-ins {@include block-ins-margins;}
+.e-block-null {@include block-null-margins;}
+
+.e-block-skin {  background: $bg-skin;  }
+.e-block-light {
+    background: $bg-light;
+    color: $fontcolor-regular;
+    p, h2, h3, h4, h5 {  color: $fontcolor-regular;  }
+    a, .infoblock a {
+        color: $fontcolor-regular;
+        &:hover {
+            color: $hovercolor;
+            text-decoration: none;
+        }
+    }
+}
+.e-block-dark {
+    background-color: $bg-dark;
+    color: $fontcolor-invert;
+    p, h2, h3, h4, h5 {  color: $fontcolor-medium-light;  }
+    a, .infoblock a {
+        color: $fontcolor-invert;
+        &:hover {
+            color: $hovercolor;
+            text-decoration: none;
+        }
+    }
+}
+.e-block-darker {
+    background-color: $bg-darker;
+    color: $fontcolor-invert;
+    p, h2, h3, h4, h5 {  color: $fontcolor-medium-light;  }
+    a, .infoblock a {
+        color: $fontcolor-invert;
+        &:hover {
+            color: $hovercolor;
+            text-decoration: none;
+        }
+    }
+}
+.e-block-darkest {
+    background-color: $bg-darkest;
+    color: $fontcolor-invert;
+    p, h2, h3, h4, h5 {  color: $fontcolor-medium-light;  }
+    a, .infoblock a {
+        color: $fontcolor-invert;
+        &:hover {
+            color: $hovercolor;
+            text-decoration: none;
+        }
+    }
+}
+.e-block-accent {
+    background-color: $bg-accent;
+    color: $fontcolor-invert;
+    p, h2, h3, h4, h5 {  color: $fontcolor-invert;  }
+    a, .infoblock a {
+        color: $fontcolor-invert;
+        &:hover {
+            color: $hovercolor;
+            text-decoration: none;
+        }
+    }
+}
+.e-block-centered {
+    text-align: center;
+    //margin: 0 auto;
+}
+.border-bot-3 {  border-bottom: 3px solid $bg-dark;  }
+.border-top-3 {  border-top: 3px solid $bg-dark;  }
+
+/* List Block */
+
+.list-block {
+    .post-author {  font-family: $font-accident-one-bold;  }
+    .comment-baloon {
+        //background: $bg-dark;
+        border-right: 1px dotted $bg-medium;
+        border-radius: 0;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        color: $fontcolor-medium;
+    }
+    .post-date2 {
+        font-family: $font-regular;
+        font-style: oblique;
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 8px;
+        margin-top: 24px;
+        padding-top: 8px;
+        border-top: 1px dotted $bg-medium;
+    }
+    h4 {
+        margin-bottom: 0.5em;
+        letter-spacing: 3px;
+        font-size: 18px;
+    }
+}
+
+
+.infoblock {
+    text-align: left;
+    @include infoblock-margins;
+    hr {
+        margin-top: 18px;
+        border-top: 3px solid $bg-dark;
+    }
+    a {
+        color: $fontcolor-regular;
+        &:hover {
+            text-decoration: none;
+            color: $hovercolor;
+        }
+    }
+}
+
+.post-attrib {   /* Post attributes in line */
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 60px;
+    margin-bottom: 0;
+}
+.post-data, .post-data0, .post-data1, .post-data2 { display: inline-block !important; }
+.post-date {
+    font-family: 'Oxygen', sans-serif;
+    font-style: oblique;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 8px;
+    color: #666;
+}
+.post-title {
+    line-height: 24px;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+.post-author {
+    font-family: $font-accident-two;
+    font-size: 14px;
+    font-style: oblique;
+    margin-bottom: 5px;
+    a {  color: #333;  }
+}
+.comment-baloon {
+    display: inline-block;
+    //background: $bg-dark;
+    height: 44px;
+    width: 44px;
+    border-radius: 22px;
+    color: $fontcolor-invert;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 44px;
+    margin: 6px 8px 24px 0;
+}
+.comment-baloon-01 {
+    display: inline-block;
+    background: $bg-medium;
+    height: 44px;
+    width: 44px;
+    border-radius: 22px;
+    color: $fontcolor-invert;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 44px;
+    margin: 6px 8px 24px 0;
+}
+
+/* Dividers */
+.dividewhite1 {  height: 10px;  }
+.dividewhite2 {  height: 20px;  }
+.dividewhite3 {  height: 30px;  }
+.dividewhite4 {  height: 40px;  }
+.dividewhite6 {  height: 60px;  }
+.dividewhite8 {  height: 80px;  }
+.dividewhite9 {  height: 90px;  }
+.dividewhite10 {  height: 100px;  }

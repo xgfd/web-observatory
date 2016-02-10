@@ -1,25 +1,9 @@
-let schemaOrg = 'http://schema.org/';
-
-Template.entryItem.helpers({
+/**
+ * Created by eugene on 10/02/2016.
+ */
+Template.entryPageItem.helpers({
     prettifyDate(timestamp) {
         return moment(new Date(timestamp)).fromNow();
-    },
-    //schema.org helpers
-    itemtype() {
-        let parentData = Template.parentData(1),
-            category = parentData.category;
-
-        switch (category) {
-            case Datasets:
-                return schemaOrg + 'Dataset';
-                break;
-            case Apps:
-                return schemaOrg + 'Apps';
-                break;
-            case Groups:
-                return schemaOrg + 'Groups';
-                break;
-        }
     },
     blurb (text, limit) {
         let blurb = jQuery.truncate(text, {
@@ -84,7 +68,7 @@ Template.entryItem.helpers({
     }
 });
 
-Template.entryItem.events({
+Template.entryPageItem.events({
     'click .upvotable' (e) {
         e.preventDefault();
         let parentData = Template.parentData(1);
@@ -97,16 +81,6 @@ Template.entryItem.events({
     }
 });
 
-Template.distribution.helpers({
-    offlineClass () {
-        if (this.online) {
-            return "teal";
-        } else {
-            return "grey";
-        }
-    }
-});
-
-Template.entryItem.rendered = function () {
+Template.entryPageItem.rendered = function () {
     $('.tooltipped').tooltip({delay: 300});
 };

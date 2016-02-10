@@ -197,6 +197,7 @@ PageController = ListController.extend({
             category: this.category,
             entry: this.category.findOne(this.params._id),
             routes: this.routes(this.category.singularName),
+            _isTemplated:true,
         };
     }
 });
@@ -293,7 +294,8 @@ HomeController = ListController.extend({
                     }
                 }
             },
-            _isHome:true
+            _isHome:true,
+            _isTemplated:true,
         };
     }
 });

@@ -19,7 +19,6 @@ orionjs:filesystem
 orionjs:s3
 orionjs:file-attribute
 standard-minifiers
-useraccounts:materialize
 useraccounts:iron-routing
 accounts-password
 accounts-google
@@ -46,3 +45,5 @@ meteorhacks:picker
 aldeed:autoform-bs-datepicker
 rajit:bootstrap3-datepicker
 twbs:bootstrap
+momentjs:moment
+useraccounts:bootstrap

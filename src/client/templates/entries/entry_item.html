@@ -1,4 +1,5 @@
 <template name="entryItem">
+
     <div class="grid-item" itemscope itemtype="{{itemtype}}">
         <meta itemprop='http://schema.org/name' content={{name}}>
         <meta itemprop='http://schema.org/url' content="{{absUrl}}">
@@ -13,52 +14,77 @@
         <meta itemprop='http://schema.org/datasetTimeInterval'
               content="{{datasetTimeInterval.startTime}} - {{datasetTimeInterval.endTime}}">
         <meta itemprop='http://schema.org/commentCount' content="{{commentCount}}">
-        <div class="card blue-grey accent-1 hoverable">
-            <div class="card-content white-text">
-                <a class="card-title white-text truncate" title="{{name}}"
-                   href="{{pathFor ../routes.page}}">{{name}}</a>
-
-                <!--<p> submitted by {{publisherObj.profile.name}} </p>-->
-                <p class="small tooltipped" data-position="bottom"
-                   data-tooltip="{{description}}">{{#if canAccess this}}
+        <div class="infoblock">
+            <h4 class="font-accident-one-bold uppercase"><a href="{{pathFor ../routes.page}}">{{blurb name 24}}</a></h4>
+            <div class="post-attrib">
+                <div class="comment-baloon font-accident-one-bold">
+                {{#if canAccess this}}
                     <span class="teal-text text-accent-2"><i class="fa fa-check"></i></span>
                 {{else}}
                     <span><i class="fa fa-ban"></i></span>
                 {{/if}}
-                    {{#if offline}}
-                        <span><i class="material-icons" title="Distribution offline">error</i></span>
-                    {{/if}}
-                    {{blurb description 80}}
-                <div>
-                    {{#each this.distribution}}
-                        <span class="badge">{{> distribution}}</span>
-                    {{/each}}
                 </div>
-                </p>
 
+                <div class="post-data">
+                    <div class="post-date hovercolor">{{prettifyDate datePublished}}</div>
+                    <div class="post-author">by {{publisherObj.username}}</div>
+                </div>
             </div>
-            <div class="card-action">
-                <a href="#" class="{{upVotedClass}} btn btn-default btn-xs" title="Up votes">
-                    <i class="fa fa-thumbs-up"></i> {{votes}}
-                </a>
-                <a href="#" class="{{downVotedClass}} btn btn-default btn-xs" title="Down votes">
-                    <i class="fa fa-thumbs-down"></i> {{downvotes}}
-                </a>
-                <a href="{{pathFor ../routes.page hash='comments'}}" class="btn btn-default btn-xs" title="Comments">
-                    <i class="fa fa-comment"></i> {{commentsCount}}
-                </a>
-                {{#if ownEntry}}
-                    <a href="{{pathFor ../routes.edit}}" class="btn btn-default btn-xs" title="Edit">
-                        <i class="fa fa-cog"></i>
-                    </a>
-                {{/if}}
-                {{#if showInNewTab}}
-                    <a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-default btn-xs" target="_blank">
-                        <i class="fa fa-external-link"></i>
-                    </a>
-                {{/if}}
+            <p class="small fontcolor-medium-light">
+                {{blurb description 160}}
+            </p>
+            <div>
+                {{#each this.distribution}}
+                    <span class="badge">{{> distribution}}</span>
+                {{/each}}
             </div>
         </div>
+        <!--<div class="card blue-grey accent-1 hoverable">-->
+            <!--<div class="card-content white-text">-->
+                <!--<a class="card-title white-text truncate" title="{{name}}"-->
+                   <!--href="{{pathFor ../routes.page}}">{{name}}</a>-->
+
+                <!--&lt;!&ndash;<p> submitted by {{publisherObj.profile.name}} </p>&ndash;&gt;-->
+                <!--<p class="small tooltipped" data-position="bottom"-->
+                   <!--data-tooltip="{{description}}">{{#if canAccess this}}-->
+                    <!--<span class="teal-text text-accent-2"><i class="fa fa-check"></i></span>-->
+                <!--{{else}}-->
+                    <!--<span><i class="fa fa-ban"></i></span>-->
+                <!--{{/if}}-->
+                    <!--{{#if offline}}-->
+                        <!--<span><i class="material-icons" title="Distribution offline">error</i></span>-->
+                    <!--{{/if}}-->
+                    <!--{{blurb description 80}}-->
+                <!--<div>-->
+                    <!--{{#each this.distribution}}-->
+                        <!--<span class="badge">{{> distribution}}</span>-->
+                    <!--{{/each}}-->
+                <!--</div>-->
+                <!--</p>-->
+
+            <!--</div>-->
+            <!--<div class="card-action">-->
+                <!--<a href="#" class="{{upVotedClass}} btn btn-default btn-xs" title="Up votes">-->
+                    <!--<i class="fa fa-thumbs-up"></i> {{votes}}-->
+                <!--</a>-->
+                <!--<a href="#" class="{{downVotedClass}} btn btn-default btn-xs" title="Down votes">-->
+                    <!--<i class="fa fa-thumbs-down"></i> {{downvotes}}-->
+                <!--</a>-->
+                <!--<a href="{{pathFor ../routes.page hash='comments'}}" class="btn btn-default btn-xs" title="Comments">-->
+                    <!--<i class="fa fa-comment"></i> {{commentsCount}}-->
+                <!--</a>-->
+                <!--{{#if ownEntry}}-->
+                    <!--<a href="{{pathFor ../routes.edit}}" class="btn btn-default btn-xs" title="Edit">-->
+                        <!--<i class="fa fa-cog"></i>-->
+                    <!--</a>-->
+                <!--{{/if}}-->
+                <!--{{#if showInNewTab}}-->
+                    <!--<a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-default btn-xs" target="_blank">-->
+                        <!--<i class="fa fa-external-link"></i>-->
+                    <!--</a>-->
+                <!--{{/if}}-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </template>
 <template name="distribution">

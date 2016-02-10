@@ -1,13 +1,13 @@
 <template name="entryList">
-    <div class="row">
-        <div class="row js-isotope"
+    <div class="list-block">
+        <div class="container js-isotope"
              data-isotope-options='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
             {{#each entries}}
                 {{> entryItem}}
             {{/each}}
         </div>
         {{#if nextPath}}
-            <a class="load-more" href="{{nextPath}}"></a>
+            <a href="{{nextPath}}" class="btn btn-lgr-str">More</a>
         {{else}}
             {{#unless ready}}
                 {{> loading}}
