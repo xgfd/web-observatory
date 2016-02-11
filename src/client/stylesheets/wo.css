@@ -1093,6 +1093,8 @@ footer {
     font-size: 24px;
     text-transform: uppercase;
     margin-bottom: 24px; }
+  footer h3 {
+    margin-bottom: 0; }
   footer p {
     color: #eaeaea;
     font-size: 12px;
