@@ -1,0 +1,62 @@
+<template name="search">
+    <div class="search-modal modal" id="search-overlay" tabindex="-1" role="dialog" aria-labelledby="Search">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-content">
+                            <div class="align-box"></div>
+                            <div class="search-header">Search Observatory</div>
+                            <div class="input-symbol">
+                                <span class="icon-search"><i class="fa fa-search"></i></span>
+                                <input id="search-field" class="search-box-expand" type="text" name="search" style="width: 30px;" autofocus>
+                            </div>
+                            <div class="row">
+                                <!--{{getPublishedCount 'dataset'}}-->
+                                <!--{{#each datasets}}-->
+                                    <!--<div class="post">-->
+                                        <!--<h3>{{name}}</h3>-->
+                                    <!--</div>-->
+                                <!--{{/each}}-->
+                                <div class="col-lg-6" id="app-search">
+                                    <div class="row">
+                                        <h4>Apps</h4>
+                                    </div>
+                                    {{> searchEntryList searchApps}}
+                                </div>
+                                <div class="col-lg-6" id="dataset-search">
+                                    <div class="row">
+                                        <h4>Datasets</h4>
+                                    </div>
+                                    {{> searchEntryList searchDatasets}}
+                                </div>
+                                <!--<div class="row">-->
+                                    <!--&lt;!&ndash;<div class="list-group">&ndash;&gt;-->
+                                    <!--<ul class="nav nav-pills nav-stacked">-->
+                                        <!--{{#each searchDatasets}}-->
+                                            <!--{{> searchEntryItem}}-->
+                                        <!--{{/each}}-->
+                                    <!--</ul>-->
+                                    <!--&lt;!&ndash;{{#if nextPath}}&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<a class="load-more" href="{{nextPath}}">...</a>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{else}}&ndash;&gt;-->
+                                        <!--&lt;!&ndash;{{#unless ready}}&ndash;&gt;-->
+                                            <!--&lt;!&ndash;{{> loading}}&ndash;&gt;-->
+                                        <!--&lt;!&ndash;{{/unless}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+                                <!--</div>-->
+                            </div>
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal -->
+</template>

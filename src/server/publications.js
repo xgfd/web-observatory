@@ -4,7 +4,9 @@ publish({
     apps: Apps,
     groups: Groups,
     licenses: Licenses,
-    userNames: Meteor.users
+    userNames: Meteor.users,
+    //searchDatasets: Datasets,
+    //searchApps: Apps,
 }, Meteor.publish, function (collection) {
     return function (options = {}, selector = {}) {
         //check(options, {

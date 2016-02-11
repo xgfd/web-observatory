@@ -87,16 +87,15 @@ Template.entryPage.rendered = function () {
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 
     urlToLink();
+    //liceToLink();
 
-    liceToLink();
+    //$('.modal-trigger').leanModal();
 
-    $('.modal-trigger').leanModal();
-
-    $('#amqpModalTrigger').leanModal({
-        complete: function () {
-            Session.set('queryResult', null);
-        }
-    });
+    //$('#amqpModalTrigger').leanModal({
+    //    complete: function () {
+    //        Session.set('queryResult', null);
+    //    }
+    //});
 };
 
 Template.entryPage.events({
