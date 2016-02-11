@@ -10,3 +10,9 @@ Template.searchEntryItem.helpers({
         return blurb
     }
 });
+
+Template.searchEntryItem.events({
+    "click a": function() {
+        $('#search-overlay').modal('hide');
+    },
+});

@@ -1,12 +1,10 @@
-///**
-// * Created by xgfd on 28/12/2015.
-// */
-//
-//Template.home.rendered = function () {
-//    $('ul.tabs').tabs();
-//};
-
-Template.home.rendered = function() {
-
-};
+Template.home.onRendered(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
 

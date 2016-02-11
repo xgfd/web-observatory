@@ -42,32 +42,28 @@ Template.search.events({
 
 Template.search.helpers({
     searchDatasets: function() {
-        return transformResults(DatasetSearch);
+        return transformResults(DatasetSearch,'dataset');
     },
     searchApps: function() {
-        return transformResults(AppSearch);
+        return transformResults(AppSearch,'app');
     },
     //isLoading: function() {
     //    return DatasetSearch.getStatus().loading;
     //}
 });
 
-function transformResults(searchSource) {
+function transformResults(searchSource, catName) {
     return {
         entries: searchSource.getData({
             transform: function(matchText, regExp) {
-                return matchText.replace(regExp, "<b>$&</b>")
+                return matchText.replace(regExp, "<mark>$&</mark>")
             }
         }),
+        routes: catName+'.page',
         //category: Datasets,
-        //routes: self.routes('dataset'),
+        //routes: Router.routes['dataset.page'],
         //ready: searchSource.getStatus().loading,
     };
-    //return searchSource.getData({
-    //    transform: function (matchText, regExp) {
-    //        return matchText.replace(regExp, "<b>$&</b>")
-    //    }
-    //});
 }
 
 

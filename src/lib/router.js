@@ -24,33 +24,33 @@ ListController = RouteController.extend({
         return {sort: this.sort, limit: this.entriesLimit()};
     },
     //query generator
-    //findSelector () {
-    //    let textFilter = search(Session.get('search'));
-    //    let query = {}, _query = this.params.query;
-    //
-    //    _.keys(_query).forEach(function (key) {
-    //        console.log(key);
-    //        switch (key) {
-    //            case 'online':
-    //            case 'aclMeta':
-    //            case 'aclContent':
-    //                query[key] = _query[key].toLowerCase() === 'true'
-    //                break;
-    //            default:
-    //                query[key] = _query[key];
-    //        }
-    //    });
-    //
-    //    _.extend(query, textFilter);
-    //
-    //    ////this function runs twice due to reactivity (subscriptions)
-    //    ////set findSelector to return the computed query straight away
-    //    ////in the second run
-    //    //this.findSelector = function () {
-    //    //    return query;
-    //    //}
-    //    return query;
-    //},
+    findSelector () {
+        let textFilter = search(Session.get('search'));
+        let query = {}, _query = this.params.query;
+
+        _.keys(_query).forEach(function (key) {
+            console.log(key);
+            switch (key) {
+                case 'online':
+                case 'aclMeta':
+                case 'aclContent':
+                    query[key] = _query[key].toLowerCase() === 'true'
+                    break;
+                default:
+                    query[key] = _query[key];
+            }
+        });
+
+        _.extend(query, textFilter);
+
+        ////this function runs twice due to reactivity (subscriptions)
+        ////set findSelector to return the computed query straight away
+        ////in the second run
+        //this.findSelector = function () {
+        //    return query;
+        //}
+        return query;
+    },
     //collection of entries (e.g. Apps, Datasets)
     category: null, //overrided in sub controllers
     //displayed entries
@@ -127,22 +127,6 @@ function search(searchText) {
 
     return selector;
 }
-
-//function searchName(searchText) {
-//    let selector;
-//    if (searchText) {
-//        let regExp = buildRegExp(searchText);
-//        selector = {
-//            $or: [
-//                {name: regExp}
-//            ]
-//        };
-//    } else {
-//        selector = {};
-//    }
-//
-//    return selector;
-//}
 
 //any position
 function buildRegExp(searchText) {
@@ -226,40 +210,6 @@ GroupPageController = PageController.extend({
     },
 });
 
-//SearchListController = ListController.extend({
-//    template: 'searchEntryList',
-//    increment: 8,
-//    subscriptions () {
-//        return [Meteor.subscribe('searchDatasets', this.findOptions(), this.findSearchSelector()), Meteor.subscribe('searchApps', this.findOptions(), this.findSearchSelector())];
-//    },
-//    findSearchSelector() {
-//        let textFilter = searchName(Session.get('search'));
-//        console.log("textFilter");
-//        return textFilter;
-//    },
-//    datasets () {
-//        return Datasets.find({}, this.findOptions());
-//    },
-//    apps () {
-//        return Apps.find({}, this.findOptions());
-//    },
-//    data() {
-//        let self = this;
-//        return {
-//            searchDataset: {
-//                category: Datasets,
-//                entries: self.datasets(),
-//                ready: self.ready.bind(self),
-//            },
-//            searchApp: {
-//                category: Apps,
-//                entries: self.apps(),
-//                ready: self.ready.bind(self),
-//            },
-//        };
-//    },
-//});
-
 HomeController = ListController.extend({
     template: 'home',
     increment: 8,
@@ -268,16 +218,6 @@ HomeController = ListController.extend({
         //return [Meteor.subscribe('datasets', this.findOptions(), this.findSearchSelector()), Meteor.subscribe('apps', this.findOptions(), this.findSearchSelector())];
         return [Meteor.subscribe('datasets', this.findOptions()), Meteor.subscribe('apps', this.findOptions())];
     },
-    //findSearchSelector() {
-    //    let textFilter = searchName(Session.get('search'));
-    //    return textFilter;
-    //},
-    //recent () {
-    //    let ds = Datasets.find({}, {sort: {datePublished: -1}, limit: 8}).fetch();
-    //    let ap = Apps.find({}, {sort: {datePublished: -1}, limit: 8}).fetch();
-    //    let cb =ds.concat(ap);
-    //    return _.first(_.sortBy(cb, function(cb) {return cb.datePublished;}).reverse(),8);
-    //},
     datasets (options) {
         if(!options)
             options = this.findOptions();
