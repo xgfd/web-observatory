@@ -68,7 +68,7 @@ body {
   height: 100%;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
   color: white;
-  background-color: black; }
+  background-color: #181818; }
 
 html {
   width: 100%;
@@ -272,7 +272,7 @@ a {
 
 .search-modal .modal-content {
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-  background-color: #000;
+  background-color: #131313;
   padding: 20px 0;
   min-height: 100%;
   border: 0;
@@ -478,14 +478,13 @@ body {
 .nav-pills-custom {
   padding-bottom: 20px; }
   .nav-pills-custom li a {
-    background-color: #000 !important;
+    background-color: transparent !important;
     text-transform: uppercase;
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #42DCA3 !important; }
     .nav-pills-custom li a:hover {
       color: #1d9b6c !important; }
   .nav-pills-custom li.active {
-    background-color: #000;
     border-bottom: 1px solid #42DCA3; }
 
 .pills-table {
@@ -1101,5 +1100,39 @@ body {
 
 .dividewhite10 {
   height: 100px; }
+
+/*------------------------------------------------------------------
+[Footer]
+*/
+footer {
+  margin-top: 48px;
+  background-color: #131313;
+  min-height: 150px;
+  color: #999;
+  font-size: 12px; }
+  footer h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 24px; }
+  footer p {
+    color: #eaeaea;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-family: Oxygen, sans-serif; }
+  footer ul {
+    padding: 0px; }
+    footer ul li {
+      display: inline-block;
+      list-style: none;
+      padding: 0px;
+      margin-right: 8px; }
+    footer ul.footer-links {
+      font-size: 16px; }
+      footer ul.footer-links li {
+        display: block !important; }
+    footer ul.footer-media {
+      font-size: 3em; }
+  footer #footer-wrapper {
+    padding: 28px 0; }
 
 /*# sourceMappingURL=wo.css.map */

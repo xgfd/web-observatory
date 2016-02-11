@@ -6,7 +6,7 @@ body {
     height: 100%;
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: white;
-    background-color: black;
+    background-color: $bg-darker;
 }
 
 html {
@@ -270,7 +270,7 @@ a {
 .search-modal {
     .modal-content {
         font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-        background-color: #000;
+        background-color: $bg-darkest;
         padding: 20px 0;
         min-height: 100%;
         border: 0;
@@ -541,7 +541,7 @@ body {
     padding-bottom: 20px;
     li {
         a {
-            background-color: #000 !important;
+            background-color: transparent !important;
             text-transform: uppercase;
             font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
             color: $primary !important;
@@ -550,7 +550,6 @@ body {
             }
         }
         &.active {
-            background-color: #000;
             border-bottom: 1px solid $primary;
         }
     }
@@ -1186,3 +1185,47 @@ body {
 .dividewhite8 {  height: 80px;  }
 .dividewhite9 {  height: 90px;  }
 .dividewhite10 {  height: 100px;  }
+
+/*------------------------------------------------------------------
+[Footer]
+*/
+
+footer {
+    margin-top: 48px;
+    background-color: $bg-darkest;
+    min-height: 150px;
+    color: $fontcolor-medium;
+    font-size: 12px;
+    h2 {
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+    p {
+        color: $fontcolor-medium-light;
+        font-size: 12px;
+        margin-bottom: 10px;
+        font-family: Oxygen, sans-serif;
+    }
+    ul {
+        padding: 0px;
+        li {
+            display: inline-block;
+            list-style: none;
+            padding: 0px;
+            margin-right: 8px;
+        }
+        &.footer-links {
+            font-size: 16px;
+            li {
+                display: block !important;
+            }
+        }
+        &.footer-media {
+            font-size: 3em;
+        }
+    }
+    #footer-wrapper {
+        padding: 28px 0;
+    }
+}

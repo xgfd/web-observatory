@@ -25,7 +25,7 @@
     <nav class="navbar navbar-custom navbar-fixed-top {{#unless _isTemplated}}force-nav-collapse{{/unless}}" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand page-scroll" href="{{#if this._isHome}}#page-top{{else}}/{{/if}}">
+                <a class="navbar-brand page-scroll" href="#page-top">
                     <span class="light">Web</span> Observatory
                 </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -74,6 +74,8 @@
                 </div>
             </section>
         {{/if}}
+        <!-- Footer -->
+        {{> footer}}
     </div>
 
     <!-- Off-canvas menu -->
