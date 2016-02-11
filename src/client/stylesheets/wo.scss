@@ -155,43 +155,50 @@ a {
     }
 }
 
+h5.title {
+    letter-spacing: 3px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    display: initial;
+}
+
 .container-fluid {
     padding: 0 40px;
 }
 
-.page-intro {
-    display: table;
-    width: 100%;
-    height: auto;
-    padding: 100px 0;
-    text-align: center;
-    color: white;
-    background: url(tele2.jpg) no-repeat bottom center scroll;
-    background-color: black;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    .intro-body {
-        display: table-cell;
-        vertical-align: middle;
-        .grid-item {
-            width:100%;
-            .card-title {
-                font-size: 3em;
-                font-weight: 300;
-            }
-            .white-text {
-                color: #fff;
-            }
-            p {
-                color: $fontcolor-medium-light;
-                font-size: 1.2em;
-            }
-        }
-
-    }
-}
+//.page-intro {
+//    display: table;
+//    width: 100%;
+//    height: auto;
+//    padding: 100px 0;
+//    text-align: center;
+//    color: white;
+//    background: url(tele2.jpg) no-repeat bottom center scroll;
+//    background-color: black;
+//    -webkit-background-size: cover;
+//    -moz-background-size: cover;
+//    background-size: cover;
+//    -o-background-size: cover;
+//    .intro-body {
+//        display: table-cell;
+//        vertical-align: middle;
+//        .grid-item {
+//            width:100%;
+//            .card-title {
+//                font-size: 3em;
+//                font-weight: 300;
+//            }
+//            .white-text {
+//                color: #fff;
+//            }
+//            p {
+//                color: $fontcolor-medium-light;
+//                font-size: 1.2em;
+//            }
+//        }
+//
+//    }
+//}
 
 .grid-item {
     padding: 10px;

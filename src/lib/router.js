@@ -197,7 +197,7 @@ PageController = ListController.extend({
             category: this.category,
             entry: this.category.findOne(this.params._id),
             routes: this.routes(this.category.singularName),
-            _isTemplated:true,
+            //_isTemplated:true,
         };
     }
 });
