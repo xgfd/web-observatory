@@ -4,13 +4,16 @@
         <div id="footer-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="{{#if _isHome}}col-sm-3{{else}}col-sm-4{{/if}}">
                         <div class="infoblock">
                             <h4 class="font-accident-two-bold uppercase">About</h4>
-                            <p>A Web Observatory is a system which gathers and links to data on the Web in order to answer questions about the Web, the users of the Web and the way that each affects the other.</p>
+                            <ul class="footer-links">
+                                <li><a href="http://webscience.org/web-observatory/">Web Observatory</a></li>
+                                <li><a href="http://webobservatory.org/">Active Observatories</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="{{#if _isHome}}col-sm-3{{else}}col-sm-4{{/if}}">
                         <div class="infoblock">
                             <h4 class="font-accident-two-bold uppercase">Get Involved</h4>
                             <ul class="footer-links">
@@ -20,6 +23,7 @@
                             </ul>
                         </div>
                     </div>
+                    {{#if _isHome}}
                     <div class="col-sm-3">
                         <div class="infoblock">
                             <h4 class="font-accident-two-bold uppercase">Statistics</h4>
@@ -30,7 +34,8 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    {{/if}}
+                    <div class="{{#if _isHome}}col-sm-3{{else}}col-sm-4{{/if}}">
                         <div class="infoblock">
                             <h4 class="font-accident-two-bold uppercase">Media</h4>
                             <ul class="footer-media">
