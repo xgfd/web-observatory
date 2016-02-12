@@ -15,7 +15,7 @@ Template.entrySubmit.helpers({
 });
 
 Template.entrySubmit.onRendered(function () {
-    hideFileUpload();
+    //hideFileUpload();
     showChooseLicense();
 });
 

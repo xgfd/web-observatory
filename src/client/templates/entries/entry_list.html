@@ -1,4 +1,14 @@
 <template name="entryList">
+    {{#if currentUser}}
+        {{#if showAdd}}
+            <!--List Bar-->
+            <div class="row">
+                <a class="btn btn-lgr-str"
+                                href="{{pathFor routes.submit}}" title="{{addItem}}">Add</a>
+            </div>
+            <div class="dividewhite2"></div>
+        {{/if}}
+    {{/if}}
     <div class="list-block">
         <div class="container js-isotope"
              data-isotope-options='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
