@@ -1248,15 +1248,25 @@ footer {
 }
 
 .entry-page {
-    h5 {
-        display: inline-block;
-        i {
-            font-size: 1.5em;
-            color: $hovercolor;
-        }
-        font-weight: 200;
-        color: $fontcolor-medium-light;
-        letter-spacing: 3px;
-        margin: 0px;
+    .badge-success {
+        background-color: #00bc8c;
     }
+    .badge-warning {
+        background-color: #f39c12;
+    }
+    .badge-danger {
+        background-color: #e74c3c;
+    }
+
+    //h5 {
+    //    display: inline-block;
+    //    i {
+    //        font-size: 1.5em;
+    //        color: $hovercolor;
+    //    }
+    //    font-weight: 200;
+    //    color: $fontcolor-medium-light;
+    //    letter-spacing: 3px;
+    //    margin: 0px;
+    //}
 }

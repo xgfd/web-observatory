@@ -1,16 +1,5 @@
 <template name="entryPage">
     {{>entryPageItem entry}}
-    <!--<header class="page-intro">-->
-        <!--<div class="intro-body">-->
-            <!--<div class="container-fluid">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-8 col-md-offset-2">-->
-                        <!--{{>entryPageItem entry}}-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</header>-->
     <div class="container-fluid">
         <div class="row page">
             <div class="col-md-8 col-md-offset-2">
@@ -30,13 +19,11 @@
             </div>
 
             <div class="tab-content col-md-8 col-md-offset-2">
-                <div id="metadata" class="tab-pane col s12 active">
-                    {{> quickForm collection=category id="metadataForm" type="readonly" doc=entry omitFields="comments, commentsCount, upvoters, downvoters, votes, downvotes, distribution.$.url, distribution.$.file, distribution.$.profile"}}
+                <div id="metadata" class="tab-pane active">
+                    {{> quickForm collection=category class="form-dark" id="metadataForm" type="readonly" doc=entry omitFields="comments, commentsCount, upvoters, downvoters, votes, downvotes, distribution.$.url, distribution.$.file, distribution.$.profile"}}
                 </div>
 
-
-
-                <div id="comments" class="tab-pane col s12">
+                <div id="comments" class="tab-pane">
                     <ul id="comments" class="comments">
                         {{#each comments}}
                             {{> commentItem}}
@@ -75,7 +62,7 @@
 
                 {{#if showRequestForm}}
                     <!--show request access form if logged in-->
-                    <div id="request_access" class="tab-pane col s12">
+                    <div id="request_access" class="tab-pane ">
                         {{#if currentUser}}
                             {{>requestFrom}}
                         {{else}}

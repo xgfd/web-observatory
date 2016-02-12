@@ -63,6 +63,71 @@
   font-weight: 700;
   font-style: normal; }
 
+/* White Skin */
+/* Blue-grey */
+.fontcolor-regular, .fontcolor-regular a {
+  color: #fff; }
+
+.fontcolor-invert, .fontcolor-invert a {
+  color: #fff; }
+
+.fontcolor-medium-light, .fontcolor-medium-light a {
+  color: #eaeaea;
+  opacity: .5; }
+
+.hovercolor, .hovercolor a {
+  color: #42DCA3 !important; }
+
+.accent-color, .accent-color a {
+  color: #007EA7 !important; }
+
+.accent-color a:hover {
+  color: #42DCA3 !important; }
+
+/*------------------------------------------------------------------
+[Typography]
+*/
+/* Headings Fonts variables */
+/* Heading font one */
+.font-accident-one-bold {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal; }
+
+.font-accident-one-normal {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+/* Heading font two */
+.font-accident-two-normal {
+  font-family: "Dosis", sans-serif;
+  font-weight: 200; }
+
+.font-accident-two-bold {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500; }
+
+.font-accident-two-extrabold {
+  font-family: "Dosis", sans-serif;
+  font-weight: 700; }
+
+/* Regular font */
+.font-regular-light {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+.font-regular-normal {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+.font-regular-bold {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 700;
+  font-style: normal; }
+
 body {
   width: 100%;
   height: 100%;
@@ -748,6 +813,8 @@ body {
 .btn-gr,
 .btn-lgr,
 .btn-lgr-str,
+.form-dark .btn-primary,
+.form-dark .btn-default,
 .btn-grey-str,
 .btn-light,
 .btn-wh,
@@ -808,14 +875,14 @@ body {
     background: #42DCA3;
     color: #fff !important; }
 
-.btn-lgr-str {
+.btn-lgr-str, .form-dark .btn-primary, .form-dark .btn-default {
   font-family: "Montserrat", sans-serif;
   font-style: oblique;
   background: none;
   margin-right: 12px;
   border: 2px solid #999;
   color: #999 !important; }
-  .btn-lgr-str:hover {
+  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .form-dark .btn-default:hover {
     background: none;
     border: 2px solid #42DCA3;
     color: #42DCA3 !important; }
@@ -1129,4 +1196,37 @@ footer {
 .entry-page .badge-danger {
   background-color: #e74c3c; }
 
-/*# sourceMappingURL=wo.css.map */
+.form-dark input[type="text"], .form-dark input[type="email"], .form-dark input[type="password"], .form-dark input[type="search"], .form-dark input[type="url"], .form-dark textarea {
+  color: #999;
+  background-color: #202020 !important;
+  padding: 12px 15px;
+  border: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07), 0 0 0 2px transparent inset;
+  box-sizing: border-box;
+  margin: 0 0 10px;
+  max-width: 100%;
+  vertical-align: baseline;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+.form-dark input, .form-dark textarea, .form-dark button {
+  color: #777;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif; }
+.form-dark .form-group {
+  text-align: left; }
+.form-dark label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #999;
+  padding: 2px 10px;
+  text-transform: uppercase; }
+.form-dark select {
+  background-color: #202020 !important;
+  color: #999; }
+
+/*# sourceMappingURL=form.css.map */

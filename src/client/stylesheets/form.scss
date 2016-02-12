@@ -1,0 +1,48 @@
+@import "variables";
+@import "wo";
+
+.form-dark {
+  input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], textarea {
+    color: $fontcolor-medium;
+    background-color: $bg-dark !important;
+    padding: 12px 15px;
+    border: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07), 0 0 0 2px rgba(0, 0, 0, 0) inset;
+
+    box-sizing: border-box;
+    margin: 0 0 10px;
+    max-width: 100%;
+    vertical-align: baseline;
+    font-size: 15px;
+
+    font-weight: 400;
+    line-height: 1.5em;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  input, textarea, button {
+    color: #777;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  .form-group {
+    text-align: left;
+  }
+  label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: $fontcolor-medium;
+    padding: 2px 10px;
+    text-transform: uppercase;
+  }
+  select {
+    background-color: $bg-dark !important;
+    color: $fontcolor-medium;
+  }
+  .btn-primary, .btn-default {
+    @extend .btn-lgr-str;
+  }
+}

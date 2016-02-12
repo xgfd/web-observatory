@@ -21,41 +21,36 @@
         </p>
         <div class="dividewhite2"></div>
         <div class="card-action">
-            <a href="#" class="{{upVotedClass}} btn btn-default btn-sm" title="Up votes">
+            <a href="#" class="{{upVotedClass}} btn btn-lgr-str" title="Up votes">
                 <i class="fa fa-thumbs-up"></i> {{votes}}
             </a>
-            <a href="#" class="{{downVotedClass}} btn btn-default btn-sm" title="Down votes">
+            <a href="#" class="{{downVotedClass}} btn btn-lgr-str" title="Down votes">
                 <i class="fa fa-thumbs-down"></i> {{downvotes}}
             </a>
             <!--<a href="{{pathFor ../routes.page hash='comments'}}" class="btn btn-default btn-xs" title="Comments">-->
                 <!--<i class="fa fa-comment"></i> {{commentsCount}}-->
             <!--</a>-->
             {{#if ownEntry}}
-                <a href="{{pathFor ../routes.edit}}" class="btn btn-default btn-sm" title="Edit">
-                    <i class="fa fa-cog"></i> Edit
+                <a href="{{pathFor ../routes.edit}}" class="btn btn-lgr-str" title="Edit">
+                    Edit
                 </a>
             {{/if}}
             {{#if showInNewTab}}
-                <a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-default btn-sm" target="_blank">
-                    <i class="fa fa-external-link">Open in Tab</i>
+                <a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-lgr-str" target="_blank">
+                    Open <i class="fa fa-external-link"></i>
                 </a>
             {{/if}}
         </div>
-        <div class="dividewhite1"></div>
+        <div class="dividewhite2"></div>
         <div class="row">
             {{#if canAccess this}}
-                <h5 class="font-accident-one-bold uppercase"><i class="fa fa-check"></i> Accessible</h5>
+                <span class="badge badge-success text-uppercase"><i class="fa fa-check"></i> Accessible</span>
             {{else}}
-                <h5 class="font-accident-one-bold uppercase"><i class="fa fa-ban"></i> No Access</h5>
+                <span class="badge badge-warning text-uppercase"><i class="fa fa-ban"></i> No Access</span>
             {{/if}}
             {{#if offline}}
-                <h5 class="font-accident-one-bold uppercase"><i class="fa fa-ban"></i> Offline</h5>
+                <span class="badge badge-danger text-uppercase"><i class="fa fa-ban"></i> Offline</span>
             {{/if}}
-        </div>
-
-
-
-        <div>
             {{#each this.distribution}}
                 <span class="badge">{{> distribution}}</span>
             {{/each}}
