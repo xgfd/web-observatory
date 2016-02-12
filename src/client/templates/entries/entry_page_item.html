@@ -1,5 +1,5 @@
 <template name="entryPageItem">
-    <div class="container text-center" itemtype="{{itemtype}}">
+    <div class="container text-center entry-page" itemtype="{{itemtype}}">
         <meta itemprop='http://schema.org/name' content={{name}}>
         <meta itemprop='http://schema.org/url' content="{{absUrl}}">
         <meta itemprop='http://schema.org/publisher' content="{{publisherObj.username}}">
@@ -19,35 +19,41 @@
         <p class="small fontcolor-medium-light">
             {{description}}
         </p>
+        <div class="dividewhite2"></div>
         <div class="card-action">
-            <a href="#" class="{{upVotedClass}} btn btn-default btn-xs" title="Up votes">
+            <a href="#" class="{{upVotedClass}} btn btn-default btn-sm" title="Up votes">
                 <i class="fa fa-thumbs-up"></i> {{votes}}
             </a>
-            <a href="#" class="{{downVotedClass}} btn btn-default btn-xs" title="Down votes">
+            <a href="#" class="{{downVotedClass}} btn btn-default btn-sm" title="Down votes">
                 <i class="fa fa-thumbs-down"></i> {{downvotes}}
             </a>
-            <a href="{{pathFor ../routes.page hash='comments'}}" class="btn btn-default btn-xs" title="Comments">
-                <i class="fa fa-comment"></i> {{commentsCount}}
-            </a>
+            <!--<a href="{{pathFor ../routes.page hash='comments'}}" class="btn btn-default btn-xs" title="Comments">-->
+                <!--<i class="fa fa-comment"></i> {{commentsCount}}-->
+            <!--</a>-->
             {{#if ownEntry}}
-                <a href="{{pathFor ../routes.edit}}" class="btn btn-default btn-xs" title="Edit">
-                    <i class="fa fa-cog"></i>
+                <a href="{{pathFor ../routes.edit}}" class="btn btn-default btn-sm" title="Edit">
+                    <i class="fa fa-cog"></i> Edit
                 </a>
             {{/if}}
             {{#if showInNewTab}}
-                <a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-default btn-xs" target="_blank">
-                    <i class="fa fa-external-link"></i>
+                <a href="{{showInNewTab}}" title="Show in new tab" class="btn btn-default btn-sm" target="_blank">
+                    <i class="fa fa-external-link">Open in Tab</i>
                 </a>
             {{/if}}
         </div>
-        {{#if canAccess this}}
-            <span class="teal-text text-accent-2"><i class="fa fa-check"></i></span>
-        {{else}}
-            <span><i class="fa fa-ban"></i></span>
-        {{/if}}
-        {{#if offline}}
-            <span><i class="material-icons" title="Distribution offline">error</i></span>
-        {{/if}}
+        <div class="dividewhite1"></div>
+        <div class="row">
+            {{#if canAccess this}}
+                <h5 class="font-accident-one-bold uppercase"><i class="fa fa-check"></i> Accessible</h5>
+            {{else}}
+                <h5 class="font-accident-one-bold uppercase"><i class="fa fa-ban"></i> No Access</h5>
+            {{/if}}
+            {{#if offline}}
+                <h5 class="font-accident-one-bold uppercase"><i class="fa fa-ban"></i> Offline</h5>
+            {{/if}}
+        </div>
+
+
 
         <div>
             {{#each this.distribution}}

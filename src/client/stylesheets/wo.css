@@ -306,6 +306,12 @@ h5.title {
       -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
       transform: rotate(90deg); }
+  .search-modal .close-modal .close-btn-label {
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #999; }
 .search-modal .close-modal:hover {
   opacity: 0.5; }
 .search-modal .modal-backdrop {
@@ -1115,5 +1121,15 @@ footer {
       font-size: 3em; }
   footer #footer-wrapper {
     padding: 28px 0; }
+
+.entry-page h5 {
+  display: inline-block;
+  font-weight: 200;
+  color: #eaeaea;
+  letter-spacing: 3px;
+  margin: 0px; }
+  .entry-page h5 i {
+    font-size: 1.5em;
+    color: #42DCA3; }
 
 /*# sourceMappingURL=wo.css.map */
