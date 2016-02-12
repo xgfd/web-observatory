@@ -45,4 +45,20 @@
   .btn-primary, .btn-default {
     @extend .btn-lgr-str;
   }
+  .panel-default {
+    .panel-heading {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      color: $fontcolor-medium;
+      padding: 5px 15px;
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 14px;
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+  }
 }

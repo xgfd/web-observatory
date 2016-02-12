@@ -1228,5 +1228,17 @@ footer {
 .form-dark select {
   background-color: #202020 !important;
   color: #999; }
+.form-dark .panel-default .panel-heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #999;
+  padding: 5px 15px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px; }
+  .form-dark .panel-default .panel-heading h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px; }
 
 /*# sourceMappingURL=form.css.map */

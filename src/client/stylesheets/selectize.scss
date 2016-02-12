@@ -9,7 +9,7 @@ $selectize-line-height: 18px !default;
 
 $selectize-color-text: $fontcolor-medium !default;
 $selectize-color-border: $bg-darkest !default;
-$selectize-color-highlight: rgba(125,168,208,0.2) !default;
+$selectize-color-highlight: rgba(66,220,163,0.2) !default;
 $selectize-color-input: $bg-dark !default;
 $selectize-color-input-full: $selectize-color-input !default;
 $selectize-color-disabled: #fafafa !default;
@@ -23,7 +23,7 @@ $selectize-color-dropdown: $bg-dark !default;
 $selectize-color-dropdown-border: $selectize-color-border !default;
 $selectize-color-dropdown-border-top: $bg-darkest !default;
 $selectize-color-dropdown-item-active: $bg-darker !default;
-$selectize-color-dropdown-item-active-text: #495c68 !default;
+$selectize-color-dropdown-item-active-text: $primary !default;
 $selectize-color-dropdown-item-create-text: rgba(red($selectize-color-text), green($selectize-color-text), blue($selectize-color-text), 0.5) !default;
 $selectize-color-dropdown-item-create-active-text: $selectize-color-dropdown-item-active-text !default;
 $selectize-color-optgroup: $selectize-color-dropdown !default;
@@ -156,6 +156,7 @@ $selectize-caret-margin-rtl: 0 4px 0 -2px !default;
   }
   .selectize-control.multi & > div {
     cursor: pointer;
+    font-family: $selectize-font-family;
     margin: 0 $selectize-margin-item-x $selectize-margin-item-y 0;
     padding: $selectize-padding-item-y $selectize-padding-item-x;
     background: $selectize-color-item !important;
@@ -258,6 +259,8 @@ $selectize-caret-margin-rtl: 0 4px 0 -2px !default;
 }
 
 .selectize-dropdown-content {
+  font-family: $selectize-font-family;
+  line-height: 2em;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: $selectize-max-height-dropdown;
