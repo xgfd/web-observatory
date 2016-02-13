@@ -45,17 +45,26 @@
                         </div>
                     {{/each}}
                     <!-- Modal Structure -->
-                    <div id="queryResult" class="modal modal-fixed-footer">
-                        <div class="modal-content">
-                            <h4>Query Results</h4>
-                            {{#if queryResult}}
-                                <pre>{{{queryResult}}}</pre>
-                            {{else}}
-                                {{> loading}}
-                            {{/if}}
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Dismiss</a>
+                    <div id="queryResult" class="modal results-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Query Results</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {{#if queryResult}}
+                                        <pre>
+                                            {{{queryResult}}}
+                                        </pre>
+                                    {{else}}
+                                        {{> loading}}
+                                    {{/if}}
+                                </div>
+                                <!--<div class="modal-footer">-->
+                                    <!--<button type="button" class="btn btn-lgr-str" data-dismiss="modal">Close</button>-->
+                                <!--</div>-->
+                            </div>
                         </div>
                     </div>
                 {{/if}}

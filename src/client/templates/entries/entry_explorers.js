@@ -157,6 +157,7 @@ Template.MongoDB.onRendered(function () {
 
 Template.MongoDB.events({
     'click a.btn.modal-trigger': queryHandlerFactory((e, template)=> {
+
         let distId = template.data._id,
             $target = $(`#${distId}`),
             collection = $target.find('[name=collection]')[0].value;

@@ -1,5 +1,5 @@
 <template name="requestFrom">
-    {{#autoForm id="requestForm" schema=requestSchema}}
+    {{#autoForm id="requestForm" class="form-dark" schema=requestSchema}}
         <div class="row">
             <div class="input-field col s6">
                 {{> afQuickField name="name" value=currentUser.profile.name}}
@@ -24,14 +24,10 @@
             </div>
         </div>
         <div class="row">
-            <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">info</i>Show license</div>
-                    <div class="collapsible-body">
-                        <p>{{{showLicense}}}</p>
-                    </div>
-                </li>
-            </ul>
+            <a class="btn btn-sm btn-lgr-str" href="#license-collapse" data-toggle="collapse">Show license</a>
+            <div class="collapse" id="license-collapse">
+                <p>{{{showLicense}}}</p>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -40,7 +36,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input class="btn" type="submit" value="Request access"/>
+                <input class="btn btn-lgr-str" type="submit" value="Request access"/>
             </div>
         </div>
     {{/autoForm}}
@@ -56,114 +52,96 @@
 </template>
 
 <template name="MongoDB">
-    <form id="{{_id}}" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <select class="validate" required aria-required="true" id="collection" name="collection">
-                    <option value="" disabled selected>Choose a collection</option>
-                    {{#each getMongoDBCollectionNames}}
-                        <option>{{name}}</option>
-                    {{/each}}
-                </select>
-                <label for="collection">Select a collection</label>
-            </div>
+    <form id="{{_id}}" class="form-dark">
+        <div class="form-group">
+            <label for="collection" class="control-label">Select a collection</label>
+            <select class="validate form-control" required aria-required="true" id="collection" name="collection">
+                <option value="" disabled selected>Choose a collection</option>
+                {{#each getMongoDBCollectionNames}}
+                    <option>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="selector" class="control-label">MongoDB query</label>
+            <input class="validate form-control" required aria-required="true" id="selector" name="selector" type="text"
+                   placeholder="A MongoDB query, e.g. {}. Double quote field names."
+                   value="{}">
+        </div>
+        <div class="form-group">
+            <label for="project" class="control-label">Project</label>
+            <input id="project" name="project" type="text" class="form-control"
+                   placeholder='Return only selected fields e.g. {"_id": 0}. Double quote field names.'
+                   value='{"_id": 0}'>
+        </div>
+        <div class="form-group">
+            <label for="skip" class="control-label">Skip</label>
+            <input id="skip" name="skip" type="text"  class="form-control" placeholder="Skip the first n results, e.g. 5" value="0">
+        </div>
+        <div class="form-group">
+            <label for="limit" class="control-label">Limit</label>
+            <input id="limit" name="limit" type="text" class="form-control" placeholder="Return up to n results, e.g. 10" value="10">
+        </div>
+        <div class="form-group">
+            <label for="sort" class="control-label">Sort</label>
+            <input id="sort" name="sort" type="text" class="form-control"
+                   placeholder='Sort by selected fields, e.g. {"_id": -1}. Double quote field names.'
+                   value='{"_id": -1}'>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input class="validate" required aria-required="true" id="selector" name="selector" type="text"
-                       placeholder="A MongoDB query, e.g. {}. Double quote field names."
-                       value="{}">
-                <label for="selector" class="active">MongoDB query</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="project" name="project" type="text"
-                       placeholder='Return only selected fields e.g. {"_id": 0}. Double quote field names.'
-                       value='{"_id": 0}'>
-                <label for="project" class="active">Project</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="skip" name="skip" type="text" placeholder="Skip the first n results, e.g. 5" value="0">
-                <label for="skip" class="active">Skip</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="limit" name="limit" type="text" placeholder="Return up to n results, e.g. 10" value="10">
-                <label for="limit" class="active">Limit</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="sort" name="sort" type="text"
-                       placeholder='Sort by selected fields, e.g. {"_id": -1}. Double quote field names.'
-                       value='{"_id": -1}'>
-                <label for="sort" class="active">Sort</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <a class="waves-effect waves-light btn modal-trigger" href="#queryResult">Query</a>
+                <a class="btn btn-lgr-str modal-trigger" data-toggle="modal" href="#queryResult">Query</a>
             </div>
         </div>
     </form>
 </template>
 
 <template name="MySQL">
-    <form id="{{_id}}" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea id="query" name="query" class="materialize-textarea"
-                          placeholder='Input a MySQL query e.g. SELECT 1 + 1 AS solution.'
-                          value='SELECT 1 + 1 AS solution'></textarea>
-                <label for="query" class="active">Query</label>
-            </div>
+    <form id="{{_id}}" class="form-dark">
+        <div class="form-group">
+            <label for="query" class="control-label">Query</label>
+            <textarea id="query" class="form-control" name="query" rows="5"
+                      placeholder='Input a MySQL query e.g. SELECT 1 + 1 AS solution.'
+                      value='SELECT 1 + 1 AS solution'></textarea>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <a class="waves-effect waves-light btn btn-lgr-str modal-trigger" href="#queryResult">Query</a>
+                <a class="btn btn-lgr-str modal-trigger" data-toggle="modal" href="#queryResult">Query</a>
             </div>
         </div>
     </form>
 </template>
 
 <template name="SPARQL">
-    <form id="{{_id}}" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea id="query" name="query" class="materialize-textarea"
-                          placeholder='Input a SPARQL query e.g. SELECT * WHERE{?S ?P ?O} LIMIT 10'
-                          value='SELECT * WHERE{?S ?P ?O} LIMIT 10'></textarea>
-                <label for="query" class="active">Query</label>
-            </div>
+    <form id="{{_id}}" class="form-dark">
+        <div class="form-group">
+            <label for="query" class="control-label">Query</label>
+            <textarea id="query" class="form-control" name="query" rows="5"
+                      placeholder='Input a SPARQL query e.g. SELECT * WHERE{?S ?P ?O} LIMIT 10'
+                      value='SELECT * WHERE{?S ?P ?O} LIMIT 10'></textarea>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <a class="waves-effect waves-light btn  btn-lgr-str modal-trigger" href="#queryResult">Query</a>
+                <a class="btn btn-lgr-str modal-trigger" data-toggle="modal" href="#queryResult">Query</a>
             </div>
         </div>
     </form>
 </template>
 
 <template name="AMQP">
-    <form id="{{_id}}" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <select class="validate" required aria-required="true" id="exchange" name="exchange">
-                    <option value="" disabled selected>Choose an exchange</option>
-                    {{#each getAMQPExchanges}}
-                        <option>{{this}}</option>
-                    {{/each}}
-                </select>
-                <label for="exchange">Select an exchange</label>
-            </div>
+    <form id="{{_id}}" class="form-dark">
+        <div class="form-group">
+            <label for="exchange" class="control-label">Select an exchange</label>
+            <select class="validate form-control" required aria-required="true" id="exchange" name="exchange">
+                <option value="" disabled selected>Choose an exchange</option>
+                {{#each getAMQPExchanges}}
+                    <option>{{this}}</option>
+                {{/each}}
+            </select>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <a id="amqpModalTrigger" class="waves-effect waves-light btn  btn-lgr-str modal-trigger" href="#queryResult">Connect</a>
+                <a id="amqpModalTrigger" class="btn btn-lgr-str modal-trigger" data-toggle="modal" href="#queryResult">Connect</a>
             </div>
         </div>
     </form>
