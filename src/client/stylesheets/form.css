@@ -828,7 +828,10 @@ body {
 .btn-lgr,
 .btn-lgr-str,
 .form-dark .btn-primary,
+.at-form .btn-primary,
 .form-dark .btn-default,
+.at-form .btn-default,
+.at-form .at-btn,
 .btn-grey-str,
 .btn-light,
 .btn-wh,
@@ -889,14 +892,14 @@ body {
     background: #42DCA3;
     color: #fff !important; }
 
-.btn-lgr-str, .form-dark .btn-primary, .form-dark .btn-default {
+.btn-lgr-str, .form-dark .btn-primary, .at-form .btn-primary, .form-dark .btn-default, .at-form .btn-default, .at-form .at-btn {
   font-family: "Montserrat", sans-serif;
   font-style: oblique;
   background: none;
   margin-right: 12px;
   border: 2px solid #999;
   color: #999 !important; }
-  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .form-dark .btn-default:hover {
+  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .at-form .btn-primary:hover, .form-dark .btn-default:hover, .at-form .btn-default:hover, .at-form .at-btn:hover {
     background: none;
     border: 2px solid #42DCA3;
     color: #42DCA3 !important; }
@@ -1210,7 +1213,7 @@ footer {
 .entry-page .badge-danger {
   background-color: #e74c3c; }
 
-.form-dark input[type="text"], .form-dark input[type="email"], .form-dark input[type="password"], .form-dark input[type="search"], .form-dark input[type="url"], .form-dark textarea {
+.form-dark input[type="text"], .at-form input[type="text"], .form-dark input[type="email"], .at-form input[type="email"], .form-dark input[type="password"], .at-form input[type="password"], .form-dark input[type="search"], .at-form input[type="search"], .form-dark input[type="url"], .at-form input[type="url"], .form-dark textarea, .at-form textarea {
   color: #999;
   background-color: #202020 !important;
   padding: 12px 15px;
@@ -1225,24 +1228,24 @@ footer {
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-.form-dark input, .form-dark textarea, .form-dark button {
+.form-dark input, .at-form input, .form-dark textarea, .at-form textarea, .form-dark button, .at-form button {
   color: #777;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 1px;
   font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif; }
-.form-dark .form-group {
+.form-dark .form-group, .at-form .form-group {
   text-align: left; }
-.form-dark label {
+.form-dark label, .at-form label {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #999;
   padding: 2px 10px;
   text-transform: uppercase; }
-.form-dark select {
+.form-dark select, .at-form select {
   background-color: #202020 !important;
   color: #999; }
-.form-dark .panel-default .panel-heading {
+.form-dark .panel-default .panel-heading, .at-form .panel-default .panel-heading {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #999;
@@ -1250,7 +1253,7 @@ footer {
   text-align: left;
   text-transform: uppercase;
   font-size: 14px; }
-  .form-dark .panel-default .panel-heading h3 {
+  .form-dark .panel-default .panel-heading h3, .at-form .panel-default .panel-heading h3 {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 14px; }

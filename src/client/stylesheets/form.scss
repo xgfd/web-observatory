@@ -62,3 +62,10 @@
     }
   }
 }
+
+.at-form {
+  @extend .form-dark;
+  .at-btn {
+    @extend .btn-lgr-str;
+  }
+}
