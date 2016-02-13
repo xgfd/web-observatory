@@ -1,0 +1,48 @@
+@import "variables";
+@import "wo";
+@import "form";
+
+.orion-bootstrap-admin {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    .sidebar {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        .sidebar-brand {
+            font-weight: 700;
+        }
+        a {
+            color: $fontcolor-invert !important;
+        }
+        background-color: $bg-darker;
+    }
+    .content {
+        background-color: $bg-darkest;
+        .navbar-inverse {
+            background-color: $bg-dark-max;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .well {
+            padding: 0;
+            margin: 0;
+            background: $bg-darkest;
+        }
+        .btn-default {
+            @extend .btn-lgr-str;
+        }
+        .btn-primary {
+            @extend .btn-lgr-str;
+        }
+        form {
+            @extend .form-dark;
+        }
+        .index-table {
+            tbody {
+                tr:hover {
+                    background: $bg-dark;
+                }
+            }
+        }
+    }
+}
