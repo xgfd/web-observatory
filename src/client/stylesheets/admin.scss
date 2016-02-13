@@ -15,10 +15,26 @@
         a {
             color: $fontcolor-invert !important;
         }
-        background-color: $bg-darker;
+        background-color: $bg-darkest;
     }
     .content {
-        background-color: $bg-darkest;
+        background-color: $bg-darker;
+        .dropdown {
+            a:hover {
+                color: $fontcolor-medium-light;
+            }
+            &.open a:focus, a:active, a:visited {
+                background-color: $bg-dark;
+            }
+        }
+        .dropdown-menu {
+            li {
+                a:hover, &.active a {
+                    background-color: $bg-dark;
+                    color: $fontcolor-medium-light;
+                }
+            }
+        }
         .navbar-inverse {
             background-color: $bg-dark-max;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -26,12 +42,9 @@
         .well {
             padding: 0;
             margin: 0;
-            background: $bg-darkest;
+            background: $bg-darker;
         }
-        .btn-default {
-            @extend .btn-lgr-str;
-        }
-        .btn-primary {
+        .btn-default,.btn-primary,.btn-danger,.btn-success,.btn-info,.btn-warning {
             @extend .btn-lgr-str;
         }
         form {
@@ -43,6 +56,27 @@
                     background: $bg-dark;
                 }
             }
+        }
+        .dt-bootstrap {
+            @extend .form-dark;
+        }
+        .pagination {
+            li {
+                a {
+                    background-color: $bg-medium-dark;
+                }
+                a:hover {
+                    background-color: $bg-dark;
+                }
+                &.disabled a {
+                    background-color: $bg-darkest;
+                }
+                &.active a {
+                    background-color: $bg-dark;
+                }
+            }
+
+
         }
     }
 }

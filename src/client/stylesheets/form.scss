@@ -2,7 +2,7 @@
 @import "wo";
 
 .form-dark {
-  input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], textarea {
+  input[type="text"], input[type="email"],input[type="date"], input[type="password"], input[type="search"], input[type="url"], input[type="number"], textarea {
     color: $fontcolor-medium;
     background-color: $bg-dark !important;
     padding: 12px 15px;

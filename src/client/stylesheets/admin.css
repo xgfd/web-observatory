@@ -831,6 +831,10 @@ body {
 .at-form .at-btn,
 .orion-bootstrap-admin .content .btn-default,
 .orion-bootstrap-admin .content .btn-primary,
+.orion-bootstrap-admin .content .btn-danger,
+.orion-bootstrap-admin .content .btn-success,
+.orion-bootstrap-admin .content .btn-info,
+.orion-bootstrap-admin .content .btn-warning,
 .btn-grey-str,
 .btn-light,
 .btn-wh,
@@ -891,14 +895,14 @@ body {
     background: #42DCA3;
     color: #fff !important; }
 
-.btn-lgr-str, .form-dark .btn-primary, .at-form .btn-primary, .form-dark .btn-default, .at-form .btn-default, .at-form .at-btn, .orion-bootstrap-admin .content .btn-default, .orion-bootstrap-admin .content .btn-primary {
+.btn-lgr-str, .form-dark .btn-primary, .at-form .btn-primary, .form-dark .btn-default, .at-form .btn-default, .at-form .at-btn, .orion-bootstrap-admin .content .btn-default, .orion-bootstrap-admin .content .btn-primary, .orion-bootstrap-admin .content .btn-danger, .orion-bootstrap-admin .content .btn-success, .orion-bootstrap-admin .content .btn-info, .orion-bootstrap-admin .content .btn-warning {
   font-family: "Montserrat", sans-serif;
   font-style: oblique;
   background: none;
   margin-right: 12px;
   border: 2px solid #999;
   color: #999 !important; }
-  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .at-form .btn-primary:hover, .form-dark .btn-default:hover, .at-form .btn-default:hover, .at-form .at-btn:hover, .orion-bootstrap-admin .content .btn-default:hover, .orion-bootstrap-admin .content .btn-primary:hover {
+  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .at-form .btn-primary:hover, .form-dark .btn-default:hover, .at-form .btn-default:hover, .at-form .at-btn:hover, .orion-bootstrap-admin .content .btn-default:hover, .orion-bootstrap-admin .content .btn-primary:hover, .orion-bootstrap-admin .content .btn-danger:hover, .orion-bootstrap-admin .content .btn-success:hover, .orion-bootstrap-admin .content .btn-info:hover, .orion-bootstrap-admin .content .btn-warning:hover {
     background: none;
     border: 2px solid #42DCA3;
     color: #42DCA3 !important; }
@@ -2045,6 +2049,10 @@ body {
 .at-form .at-btn,
 .orion-bootstrap-admin .content .btn-default,
 .orion-bootstrap-admin .content .btn-primary,
+.orion-bootstrap-admin .content .btn-danger,
+.orion-bootstrap-admin .content .btn-success,
+.orion-bootstrap-admin .content .btn-info,
+.orion-bootstrap-admin .content .btn-warning,
 .btn-grey-str,
 .btn-light,
 .btn-wh,
@@ -2105,14 +2113,14 @@ body {
     background: #42DCA3;
     color: #fff !important; }
 
-.btn-lgr-str, .form-dark .btn-primary, .at-form .btn-primary, .form-dark .btn-default, .at-form .btn-default, .at-form .at-btn, .orion-bootstrap-admin .content .btn-default, .orion-bootstrap-admin .content .btn-primary {
+.btn-lgr-str, .form-dark .btn-primary, .at-form .btn-primary, .form-dark .btn-default, .at-form .btn-default, .at-form .at-btn, .orion-bootstrap-admin .content .btn-default, .orion-bootstrap-admin .content .btn-primary, .orion-bootstrap-admin .content .btn-danger, .orion-bootstrap-admin .content .btn-success, .orion-bootstrap-admin .content .btn-info, .orion-bootstrap-admin .content .btn-warning {
   font-family: "Montserrat", sans-serif;
   font-style: oblique;
   background: none;
   margin-right: 12px;
   border: 2px solid #999;
   color: #999 !important; }
-  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .at-form .btn-primary:hover, .form-dark .btn-default:hover, .at-form .btn-default:hover, .at-form .at-btn:hover, .orion-bootstrap-admin .content .btn-default:hover, .orion-bootstrap-admin .content .btn-primary:hover {
+  .btn-lgr-str:hover, .form-dark .btn-primary:hover, .at-form .btn-primary:hover, .form-dark .btn-default:hover, .at-form .btn-default:hover, .at-form .at-btn:hover, .orion-bootstrap-admin .content .btn-default:hover, .orion-bootstrap-admin .content .btn-primary:hover, .orion-bootstrap-admin .content .btn-danger:hover, .orion-bootstrap-admin .content .btn-success:hover, .orion-bootstrap-admin .content .btn-info:hover, .orion-bootstrap-admin .content .btn-warning:hover {
     background: none;
     border: 2px solid #42DCA3;
     color: #42DCA3 !important; }
@@ -2426,7 +2434,7 @@ footer {
 .entry-page .badge-danger {
   background-color: #e74c3c; }
 
-.form-dark input[type="text"], .at-form input[type="text"], .orion-bootstrap-admin .content form input[type="text"], .form-dark input[type="email"], .at-form input[type="email"], .orion-bootstrap-admin .content form input[type="email"], .form-dark input[type="password"], .at-form input[type="password"], .orion-bootstrap-admin .content form input[type="password"], .form-dark input[type="search"], .at-form input[type="search"], .orion-bootstrap-admin .content form input[type="search"], .form-dark input[type="url"], .at-form input[type="url"], .orion-bootstrap-admin .content form input[type="url"], .form-dark textarea, .at-form textarea, .orion-bootstrap-admin .content form textarea {
+.form-dark input[type="text"], .at-form input[type="text"], .orion-bootstrap-admin .content form input[type="text"], .orion-bootstrap-admin .content .dt-bootstrap input[type="text"], .form-dark input[type="email"], .at-form input[type="email"], .orion-bootstrap-admin .content form input[type="email"], .orion-bootstrap-admin .content .dt-bootstrap input[type="email"], .form-dark input[type="date"], .at-form input[type="date"], .orion-bootstrap-admin .content form input[type="date"], .orion-bootstrap-admin .content .dt-bootstrap input[type="date"], .form-dark input[type="password"], .at-form input[type="password"], .orion-bootstrap-admin .content form input[type="password"], .orion-bootstrap-admin .content .dt-bootstrap input[type="password"], .form-dark input[type="search"], .at-form input[type="search"], .orion-bootstrap-admin .content form input[type="search"], .orion-bootstrap-admin .content .dt-bootstrap input[type="search"], .form-dark input[type="url"], .at-form input[type="url"], .orion-bootstrap-admin .content form input[type="url"], .orion-bootstrap-admin .content .dt-bootstrap input[type="url"], .form-dark input[type="number"], .at-form input[type="number"], .orion-bootstrap-admin .content form input[type="number"], .orion-bootstrap-admin .content .dt-bootstrap input[type="number"], .form-dark textarea, .at-form textarea, .orion-bootstrap-admin .content form textarea, .orion-bootstrap-admin .content .dt-bootstrap textarea {
   color: #999;
   background-color: #202020 !important;
   padding: 12px 15px;
@@ -2441,24 +2449,24 @@ footer {
   line-height: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-.form-dark input, .at-form input, .orion-bootstrap-admin .content form input, .form-dark textarea, .at-form textarea, .orion-bootstrap-admin .content form textarea, .form-dark button, .at-form button, .orion-bootstrap-admin .content form button {
+.form-dark input, .at-form input, .orion-bootstrap-admin .content form input, .orion-bootstrap-admin .content .dt-bootstrap input, .form-dark textarea, .at-form textarea, .orion-bootstrap-admin .content form textarea, .orion-bootstrap-admin .content .dt-bootstrap textarea, .form-dark button, .at-form button, .orion-bootstrap-admin .content form button, .orion-bootstrap-admin .content .dt-bootstrap button {
   color: #777;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 1px;
   font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif; }
-.form-dark .form-group, .at-form .form-group, .orion-bootstrap-admin .content form .form-group {
+.form-dark .form-group, .at-form .form-group, .orion-bootstrap-admin .content form .form-group, .orion-bootstrap-admin .content .dt-bootstrap .form-group {
   text-align: left; }
-.form-dark label, .at-form label, .orion-bootstrap-admin .content form label {
+.form-dark label, .at-form label, .orion-bootstrap-admin .content form label, .orion-bootstrap-admin .content .dt-bootstrap label {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #999;
   padding: 2px 10px;
   text-transform: uppercase; }
-.form-dark select, .at-form select, .orion-bootstrap-admin .content form select {
+.form-dark select, .at-form select, .orion-bootstrap-admin .content form select, .orion-bootstrap-admin .content .dt-bootstrap select {
   background-color: #202020 !important;
   color: #999; }
-.form-dark .panel-default .panel-heading, .at-form .panel-default .panel-heading, .orion-bootstrap-admin .content form .panel-default .panel-heading {
+.form-dark .panel-default .panel-heading, .at-form .panel-default .panel-heading, .orion-bootstrap-admin .content form .panel-default .panel-heading, .orion-bootstrap-admin .content .dt-bootstrap .panel-default .panel-heading {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #999;
@@ -2466,7 +2474,7 @@ footer {
   text-align: left;
   text-transform: uppercase;
   font-size: 14px; }
-  .form-dark .panel-default .panel-heading h3, .at-form .panel-default .panel-heading h3, .orion-bootstrap-admin .content form .panel-default .panel-heading h3 {
+  .form-dark .panel-default .panel-heading h3, .at-form .panel-default .panel-heading h3, .orion-bootstrap-admin .content form .panel-default .panel-heading h3, .orion-bootstrap-admin .content .dt-bootstrap .panel-default .panel-heading h3 {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 14px; }
@@ -2478,21 +2486,36 @@ footer {
   .orion-bootstrap-admin .sidebar {
     text-transform: uppercase;
     letter-spacing: 2px;
-    background-color: #181818; }
+    background-color: #131313; }
     .orion-bootstrap-admin .sidebar .sidebar-brand {
       font-weight: 700; }
     .orion-bootstrap-admin .sidebar a {
       color: #fff !important; }
   .orion-bootstrap-admin .content {
-    background-color: #131313; }
+    background-color: #181818; }
+    .orion-bootstrap-admin .content .dropdown a:hover {
+      color: #eaeaea; }
+    .orion-bootstrap-admin .content .dropdown.open a:focus, .orion-bootstrap-admin .content .dropdown a:active, .orion-bootstrap-admin .content .dropdown a:visited {
+      background-color: #202020; }
+    .orion-bootstrap-admin .content .dropdown-menu li a:hover, .orion-bootstrap-admin .content .dropdown-menu li.active a {
+      background-color: #202020;
+      color: #eaeaea; }
     .orion-bootstrap-admin .content .navbar-inverse {
       background-color: rgba(0, 0, 0, 0.9);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
     .orion-bootstrap-admin .content .well {
       padding: 0;
       margin: 0;
-      background: #131313; }
+      background: #181818; }
     .orion-bootstrap-admin .content .index-table tbody tr:hover {
       background: #202020; }
+    .orion-bootstrap-admin .content .pagination li a {
+      background-color: #464545; }
+    .orion-bootstrap-admin .content .pagination li a:hover {
+      background-color: #202020; }
+    .orion-bootstrap-admin .content .pagination li.disabled a {
+      background-color: #131313; }
+    .orion-bootstrap-admin .content .pagination li.active a {
+      background-color: #202020; }
 
 /*# sourceMappingURL=admin.css.map */
