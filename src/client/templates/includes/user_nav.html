@@ -3,9 +3,9 @@
         <li>
             <a href="/admin">{{currentUser.profile.name}}</a>
         </li>
-        <!--<li>-->
-            <!--{{> notifications}}-->
-        <!--</li>-->
+        <li class="dropdown">
+            {{> notifications}}
+        </li>
     {{else}}
         <li>
             <a href="/admin">Login</a>

@@ -23,8 +23,8 @@
             a:hover {
                 color: $fontcolor-medium-light;
             }
-            &.open a:focus, a:active, a:visited {
-                background-color: $bg-dark;
+            &.open a.dropdown-toggle {
+                background-color: #303030;
             }
         }
         .dropdown-menu {

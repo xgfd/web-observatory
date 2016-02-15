@@ -2495,8 +2495,8 @@ footer {
     background-color: #181818; }
     .orion-bootstrap-admin .content .dropdown a:hover {
       color: #eaeaea; }
-    .orion-bootstrap-admin .content .dropdown.open a:focus, .orion-bootstrap-admin .content .dropdown a:active, .orion-bootstrap-admin .content .dropdown a:visited {
-      background-color: #202020; }
+    .orion-bootstrap-admin .content .dropdown.open a.dropdown-toggle {
+      background-color: #303030; }
     .orion-bootstrap-admin .content .dropdown-menu li a:hover, .orion-bootstrap-admin .content .dropdown-menu li.active a {
       background-color: #202020;
       color: #eaeaea; }

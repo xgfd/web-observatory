@@ -1,21 +1,20 @@
 <template name="notifications">
-    <a class="dropdown-button" href='#!' data-activates='dropdown1'>
-        <!--Notifications-->
-        {{#if notificationCount}}
-            <i class="material-icons left">announcement</i>
-            Notifications
-            <span class="badge orange lighten-2 white-text">{{notificationCount}}</span>
-        {{/if}}
-    </a>
-    <ul id='dropdown1' class='dropdown-content'>
-        {{#if notificationCount}}
-            {{#each notifications}}
-                {{> notificationItem}}
-            {{/each}}
-        {{else}}
-            <li><span>No Notifications</span></li>
-        {{/if}}
-    </ul>
+    {{#if notificationCount}}
+        <a class="dropdown-toggle" href='#' data-toggle="dropdown">
+            <i class="fa fa-bell-o"></i>
+            <!--Notifications-->
+                <span class="badge">{{notificationCount}}</span>
+        </a>
+        <ul id='dropdown1' class='dropdown-menu'>
+            {{#if notificationCount}}
+                {{#each notifications}}
+                    {{> notificationItem}}
+                {{/each}}
+            {{else}}
+                <li><span>No Notifications</span></li>
+            {{/if}}
+        </ul>
+    {{/if}}
 </template>
 
 <template name="notificationItem">
