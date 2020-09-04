@@ -4,7 +4,7 @@
   "description": "",
   "main": "migrate.js",
   "dependencies": {
-    "mongodb": "^2.1.4",
+    "mongodb": "^3.6.1",
     "synchronize": "^0.9.14"
   },
   "devDependencies": {},
