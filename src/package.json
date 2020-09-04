@@ -18,7 +18,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "kerberos": "0.0.21",
-    "mongodb": "2.1.21",
+    "mongodb": "3.6.1",
     "mysql": "2.10.0",
     "openid-connect-wo": "^1.2.5",
     "pg": "^4.4.4",
